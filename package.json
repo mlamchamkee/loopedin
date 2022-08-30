@@ -1,11 +1,12 @@
 {
   "name": "solo-csf",
   "version": "1.0.0",
-  "description": "",
+  "description": "Codesmith Family Bio",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
     "start": "nodemon server/server.js",
+    "build": "webpack",
+    "dev": "webpack serve --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
