@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack",
-    "dev": "webpack serve --open",
+    "dev": "concurrently \"NODE_ENV=development webpack serve --hot --progress --color\" \"nodemon ./server/server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
