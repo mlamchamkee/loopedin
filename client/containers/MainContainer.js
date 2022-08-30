@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Iris from '../components/Iris.js';
+import OuterIris from '../components/OuterIris.js';
 
 class MainContainer extends Component {
   constructor(props) {
@@ -11,8 +11,7 @@ class MainContainer extends Component {
       <div className="container">
         <div className="outerBox">
           <h1 id="header">The Codesmith Family</h1>
-          <Iris/>
-          <Iris/>
+          <OuterIris/>
         </div>
       </div>
     );
