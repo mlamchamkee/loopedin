@@ -13,12 +13,12 @@ app.get('/',
   (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/index.html')),
 );
 
-app.get('/a',
+app.get('/bios',
   controller.getAllBios,
   (req, res) => res.status(200).json(res.locals.bios),
 );
 
-app.post('/a',
+app.post('/bios',
   controller.addBio,
   (req, res) => res.status(201).json(res.locals.newBio),
 );

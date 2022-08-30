@@ -7,8 +7,9 @@ class Iris extends React.Component {
 
   render() {
     return (
-      <div className="irisz">
-        <Avatar/>
+      <div className="iris">
+        <p>{this.props.name}</p>
+        {/* <Avatar/> */}
       </div>
     );
   }

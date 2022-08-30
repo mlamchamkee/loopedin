@@ -1,27 +1,23 @@
 body {
     background: #F8FAFC;
-  }
-  
-  #board {
-    width: 390px;
-    height: 390px;
-    // border: 5px solid $lightOrange;
-    // background-color: $darkBlue;
-    margin: 20px auto;
-    padding: 0;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .avatar {
+    background-color: #FFFFFF;
     border-radius: 50%;
     height: 70px;
     width: 70px;
   }
 
   .iris {
-    // background-color: #65BEC7;
+    background-color: #65BEC7;
     border-radius: 50%;
-    height: 85px;
-    width: 85px;   
+    height: 95px;
+    width: 95px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
   
     &:hover {
@@ -29,4 +25,23 @@ body {
     }
   
   }
-
+  
+  p {
+    position: relative;
+    width: 95px;
+    height: 95px;
+    margin: 1rem auto;
+    text-transform: uppercase;
+    // background: radial-gradient(orchid, slateBlue);
+    // color: white;
+    border-radius: 50%;
+  }
+  
+  .char {
+    --i: calc(100% / (var(--char-total) + 1));
+    position: absolute;
+    offset-path: path('M225.5.5c124.3 0 225 100.7 225 225s-100.7 225-225 225S.5 349.8.5 225.5 101.2.5 225.5.5');
+    offset-distance: calc(var(--i) * var(--char-index));
+  /*  offset-anchor: top; FF only */
+    padding-top: 4rem;
+  }

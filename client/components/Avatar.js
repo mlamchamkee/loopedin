@@ -7,7 +7,7 @@ class Avatar extends React.Component {
 
   render() {
     return (
-      <img className="avatar" url="https://www.w3schools.com/howto/img_avatar.png"/>
+      <img url="https://www.w3schools.com/howto/img_avatar.png" className="avatar"/>
     );
   }
 }
