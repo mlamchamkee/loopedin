@@ -1,0 +1,32 @@
+body {
+    background: #F8FAFC;
+  }
+  
+  #board {
+    width: 390px;
+    height: 390px;
+    // border: 5px solid $lightOrange;
+    // background-color: $darkBlue;
+    margin: 20px auto;
+    padding: 0;
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+  }
+
+  .iris {
+    // background-color: #65BEC7;
+    border-radius: 50%;
+    height: 85px;
+    width: 85px;   
+    cursor: pointer;
+  
+    &:hover {
+      background-color: darken(white, 15);
+    }
+  
+  }
+
