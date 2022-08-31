@@ -3,6 +3,8 @@ const express = require('express');
 const controller = require('./controllers');
 
 const app = express();
+
+app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
 const PORT = 3000;

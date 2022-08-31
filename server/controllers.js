@@ -13,6 +13,15 @@ bioController.getAllBios = (req, res, next) => {
 };
 
 bioController.addBio = (req, res, next) => {
+  // error handling for empty bios provided
+  // console.log('attempting to create bio');
+  // console.log(req.body);
+  if (!Object.keys(req.body).length) return next({
+    log: 'Request body is empty',
+    message: { err: 'Required information not provided'},
+  });
+
+  // creates the record in database
   models.Person.create(req.body)
     .then((bio) => {
       res.locals.newBio = bio;

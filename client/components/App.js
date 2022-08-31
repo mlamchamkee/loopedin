@@ -25,15 +25,17 @@ class App extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        fullName: document.querySelector('#full-name'),
+        fullName: document.querySelector('#full-name').value,
         // chosenName: document.querySelector('#preferred-name'),
-        gitHub: document.querySelector('#github'),
+        gitHub: document.querySelector('#github').value,
       })
     };
 
+    // console.log('Handle Click invoked');
+    // console.log(requestOptions.body);
     fetch('/bios/', requestOptions)
       .then(response => response.json())
-      .then(() => this.toggleModal())
+      // .then(() => this.toggleModal())
       .catch(err => console.log('ERROR: Unable to create profile', err));
   }
 
@@ -41,7 +43,7 @@ class App extends Component {
     return (
       <div>
         <MainContainer id="main-container" toggleModal={ this.toggleModal }/>
-        {/* <Form id="modal" show={ this.state.showModal } postProfile={ this.postProfile }/> */}
+        <Form id="modal" show={ this.state.showModal } postProfile={ this.postProfile }/>
       </div>
     );        
   }
