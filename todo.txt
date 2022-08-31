@@ -4,12 +4,11 @@ https://blog.bitsrc.io/build-a-simple-modal-component-with-react-16decdc111a6
 https://vegibit.com/bootstrap-modal-form-examples/
 
 [x] submit button to submit profile
-[ ] search functionality to filter users with skills
+[x] search functionality to filter users with skills
+[ ] onclick to show modals for profiles
 [ ] pictures as assets in the repo
 
-[ ] containers for profiles
 [ ] on hover show badges
-[ ] on click show profile page
 [ ] Curve text of names and titles around circles
 
 STRETCH FEATURE

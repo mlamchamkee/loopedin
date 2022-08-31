@@ -9,11 +9,11 @@ app.use(express.urlencoded({extended : true}));
 
 const PORT = 3000;
 
-app.use('/build', express.static(path.join(__dirname, '../build')));
-
 app.get('/',
   (req, res) => res.status(200).sendFile(path.join(__dirname, '../client/index.html')),
 );
+app.use('/build', express.static(path.join(__dirname, '../build')));
+
 
 app.get('/bios',
   controller.getAllBios,

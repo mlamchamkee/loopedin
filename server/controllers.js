@@ -13,12 +13,9 @@ bioController.getAllBios = (req, res, next) => {
 };
 
 bioController.findBios = (req, res, next) => {
-  console.log(req.params.skill);
   models.Bio.find({ skills: req.params.skill })
     .then(data => {
-      console.log(data);
       res.locals.bios = data;
-      console.log('got subset bios');
       return next();
     })
     .catch(err => next({ message: { err: 'Error in findBios controller'}}));
@@ -37,7 +34,7 @@ bioController.addBio = (req, res, next) => {
   models.Bio.create(req.body)
     .then((bio) => {
       res.locals.newBio = bio;
-      console.log('added bio', res.locals.newBio);
+      // console.log('added bio', res.locals.newBio);
       return next();
     })
     .catch(err => next({ message: { err: 'Error in addBio controller' } }));

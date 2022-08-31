@@ -1,22 +1,27 @@
 import React from 'react';
-import { Button } from '@mui/material';
 
 class CreateButton extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const { className, toggleDialog } = this.props;
-    console.log('button props', this.props);
+    // console.log('button props', this.props);
     return (
-      <div>
-        <button
-          type="button" 
-          className={className} 
-          onClick={toggleDialog}>
-          Create Profile
-        </button> 
-      </div>
+      <form onSubmit={toggleDialog}>
+        <input
+          id="create-button"
+          type="submit" 
+          className={className}
+          value="Create Profile"
+        >
+          {/* onClick={toggleDialog}> */}
+        </input> 
+      </form>
       
     );
   }
 }
 
-export default Button;
+export default CreateButton;

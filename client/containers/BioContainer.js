@@ -11,7 +11,7 @@ class BioContainer extends React.Component {
   render() {
     const { bios } = this.props;
     const bioElems = [];
-    console.log('BioContainer Bios', bios);
+    // console.log('BioContainer Bios', bios);
     if (bios) {
       for (const bio of bios) {
         bioElems.push(<Iris key={bio.gitHub} name={bio.fullName}/>);

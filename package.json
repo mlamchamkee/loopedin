@@ -4,8 +4,8 @@
   "description": "Codesmith Family Bio",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "build": "webpack",
+    "start": "NODE_ENV=production nodemon server/server.js",
+    "build": "NODE_ENV=production webpack",
     "dev": "concurrently \"NODE_ENV=development webpack serve --hot --color\" \"nodemon ./server/server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

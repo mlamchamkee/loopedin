@@ -18,7 +18,7 @@ class App extends Component {
 
   // opens and closes dialog box to submit user profiles
   toggleDialog() {
-    console.log('toggleDialog running');
+    // console.log('toggleDialog running');
     if (this.state.showDialog) this.setState({ showDialog: false });
     else this.setState({ showDialog: true });
   }
@@ -47,13 +47,13 @@ class App extends Component {
   search(e) {
     let skill;
     if (e) skill = e.target.value;
-    console.log('Search', skill);
+    // console.log('Search', skill);
 
     let endpoint;
     if (skill) endpoint = `/search/${skill}`;
     else endpoint = '/bios/';
 
-    console.log('Search', endpoint);
+    // console.log('Search', endpoint);
 
     fetch(endpoint)
       .then(response => response.json())

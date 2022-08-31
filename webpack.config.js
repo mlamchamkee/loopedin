@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: './client/index.js',
   module: {
     rules: [
@@ -32,6 +32,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [new HtmlWebpackPlugin({ template: './client/index.html' })],
+  // resolve: { extensions: ['*', '.js', '.jsx'] },
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'build'),

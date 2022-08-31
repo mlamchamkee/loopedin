@@ -64,7 +64,7 @@ p {
   padding-top: 4rem;
 }
 
-button {
+#create-button {
   background-color: $cs-teal;
   border: none;
   color: white;
@@ -74,7 +74,7 @@ button {
   transition-duration: 0.4s;
 }
 
-button:hover {
+#create-button:hover {
   background-color: lighten($cs-teal, 20);
 }
 
