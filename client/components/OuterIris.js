@@ -14,7 +14,6 @@ class OuterIris extends React.Component {
     fetch('/bios/')
       .then(res => res.json())
       .then((bios) => {
-        console.log('Bios', bios);
         if (!Array.isArray(bios)) bios = [];
         return this.setState({
           bios,
@@ -29,12 +28,12 @@ class OuterIris extends React.Component {
     const bioElems = [];
     if (this.state.fetchedBios) {
       for (const bio of bios) {
-        bioElems.push(<Iris name={bio.chosenName}/>);
+        bioElems.push(<Iris key={bio.chosenName} name={bio.chosenName}/>);
       }
     }
 
     return (
-      <div className="outer-iris">
+      <div id="outer-iris" className="outer-iris">
         {bioElems}
       </div>
     );

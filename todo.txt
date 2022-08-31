@@ -1,4 +1,8 @@
 [ ] submission form modal for profile
+https://codepen.io/chriscoyier/pen/NgNymx
+https://blog.bitsrc.io/build-a-simple-modal-component-with-react-16decdc111a6
+https://vegibit.com/bootstrap-modal-form-examples/
+
 [ ] submit button to submit profile
 [ ] search functionality to filter users with hobbies
 [ ] search functionality to filter users with skills
@@ -11,3 +15,10 @@
 
 STRETCH FEATURE
 [ ] OAuth
+
+
+https://1stwebdesigner.com/set-text-on-a-circle-with-css/
+https://css-tricks.com/snippets/svg/curved-text-along-path/
+https://css-irl.info/positioning-text-along-a-path-with-css/
+https://codepen.io/michellebarker/pen/oNXyJxv
+https://thesassway.com/how-too-text-to-curve-in-css/
