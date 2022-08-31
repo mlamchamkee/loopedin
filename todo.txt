@@ -1,9 +1,9 @@
-[ ] submission form dialog for profile
+[ ] submission form dialog for profile - button not triggering toggleDialog
 https://codepen.io/chriscoyier/pen/NgNymx
 https://blog.bitsrc.io/build-a-simple-modal-component-with-react-16decdc111a6
 https://vegibit.com/bootstrap-modal-form-examples/
 
-[ ] submit button to submit profile
+[x] submit button to submit profile
 [ ] search functionality to filter users with hobbies
 [ ] search functionality to filter users with skills
 [ ] pictures as assets in the repo

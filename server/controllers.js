@@ -3,13 +3,23 @@ const models = require('./models');
 const bioController = {};
 
 bioController.getAllBios = (req, res, next) => {
-  models.Person.find({})
+  models.Bio.find({})
     .then(data => {
       res.locals.bios = data;
       console.log('got all bios');
       return next();
     })
     .catch(err => next({ message: { err: 'Error in getAllBios controller'}}));
+};
+
+bioController.findBios = (req, res, next) => {
+  models.Bio.find({ skills: { $elemMatch: req.body.skill } })
+    .then(data => {
+      res.locals.bios = data;
+      console.log('got subset bios');
+      return next();
+    })
+    .catch(err => next({ message: { err: 'Error in findBios controller'}}));
 };
 
 bioController.addBio = (req, res, next) => {
@@ -22,7 +32,7 @@ bioController.addBio = (req, res, next) => {
   });
 
   // creates the record in database
-  models.Person.create(req.body)
+  models.Bio.create(req.body)
     .then((bio) => {
       res.locals.newBio = bio;
       console.log('added bio', res.locals.newBio);

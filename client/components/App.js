@@ -27,7 +27,7 @@ class App extends Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         fullName: document.querySelector('#full-name').value,
-        // chosenName: document.querySelector('#preferred-name'),
+        // preferredName: document.querySelector('#preferred-name'),
         gitHub: document.querySelector('#github').value,
       })
     };
