@@ -20,6 +20,11 @@ app.get('/bios',
   (req, res) => res.status(200).json(res.locals.bios),
 );
 
+app.get('/search/:skill',
+  controller.findBios,
+  (req, res) => res.status(200).json(res.locals.bios),
+);
+
 app.post('/bios',
   controller.addBio,
   (req, res) => res.status(201).json(res.locals.newBio),

@@ -13,8 +13,10 @@ bioController.getAllBios = (req, res, next) => {
 };
 
 bioController.findBios = (req, res, next) => {
-  models.Bio.find({ skills: { $elemMatch: req.body.skill } })
+  console.log(req.params.skill);
+  models.Bio.find({ skills: req.params.skill })
     .then(data => {
+      console.log(data);
       res.locals.bios = data;
       console.log('got subset bios');
       return next();

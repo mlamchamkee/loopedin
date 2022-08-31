@@ -4,7 +4,6 @@ https://blog.bitsrc.io/build-a-simple-modal-component-with-react-16decdc111a6
 https://vegibit.com/bootstrap-modal-form-examples/
 
 [x] submit button to submit profile
-[ ] search functionality to filter users with hobbies
 [ ] search functionality to filter users with skills
 [ ] pictures as assets in the repo
 
@@ -15,7 +14,7 @@ https://vegibit.com/bootstrap-modal-form-examples/
 
 STRETCH FEATURE
 [ ] OAuth
-
+[ ] search functionality to filter users with hobbies
 
 https://1stwebdesigner.com/set-text-on-a-circle-with-css/
 https://css-tricks.com/snippets/svg/curved-text-along-path/
