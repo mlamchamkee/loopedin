@@ -31,8 +31,8 @@ class Form extends React.Component {
     // );
     return (
       <Dialog
-        open={this.props.show}
-        onClose={this.props.showModal}
+        open={ this.props.show }
+        onClose={ this.props.showModal }
         scroll="paper"
       >
         <DialogTitle id="scroll-dialog-title">Create Codesmith Profile</DialogTitle>
@@ -43,8 +43,8 @@ class Form extends React.Component {
           {/* <TextField id="expertize" label="Can be a resource for:" variant="outlined" /> */}
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.props.toggleDialog} endIcon={<DeleteIcon/>}>Cancel</Button>
-          <Button onClick={this.props.postProfile} endIcon={<SendIcon/>}>Create</Button>
+          <Button onClick={ this.props.toggleDialog } endIcon={ <DeleteIcon/> }>Cancel</Button>
+          <Button onClick={ this.props.postProfile } endIcon={ <SendIcon/> }>Create</Button>
         </DialogActions>
       </Dialog>
 

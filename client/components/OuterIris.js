@@ -28,7 +28,7 @@ class OuterIris extends React.Component {
     const bioElems = [];
     if (this.state.fetchedBios) {
       for (const bio of bios) {
-        bioElems.push(<Iris key={bio.chosenName} name={bio.chosenName}/>);
+        bioElems.push(<Iris key={bio.gitHub} name={bio.fullName}/>);
       }
     }
 

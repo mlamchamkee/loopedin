@@ -1,11 +1,13 @@
 import React from 'react';
+import { Button } from '@mui/material';
 
-class Button extends React.Component {
+class CreateButton extends React.Component {
   render() {
     console.log('button props', this.props.toggleDialog);
     return (
       <div>
-        <button 
+        <button
+          type="button" 
           className={this.props.className} 
           onClick={this.props.toggleDialog}>
           {this.props.innerText}

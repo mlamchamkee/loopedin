@@ -13,7 +13,7 @@ class App extends Component {
   toggleDialog() {
     console.log('Im running up that hill');
     if (this.state.showDialog) this.setState({ showDialog: false });
-    else this.setState({ Dialog: true });
+    else this.setState({ showDialog: true });
   }
 
   toggleDialogSubmission() {
