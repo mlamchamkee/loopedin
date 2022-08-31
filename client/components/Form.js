@@ -43,7 +43,7 @@ class Form extends React.Component {
           {/* <TextField id="expertize" label="Can be a resource for:" variant="outlined" /> */}
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.props.toggleModal} endIcon={<DeleteIcon/>}>Cancel</Button>
+          <Button onClick={this.props.toggleDialog} endIcon={<DeleteIcon/>}>Cancel</Button>
           <Button onClick={this.props.postProfile} endIcon={<SendIcon/>}>Create</Button>
         </DialogActions>
       </Dialog>

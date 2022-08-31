@@ -5,18 +5,18 @@ import Form from './Form.js';
 class App extends Component {
   constructor() {
     super();
-    this.state = { showModal: true };
-    this.toggleModal = this.toggleModal.bind(this);
+    this.state = { showDialog: true };
+    this.toggleDialog = this.toggleDialog.bind(this);
     this.postProfile = this.postProfile.bind(this);
   }
 
-  toggleModal() {
+  toggleDialog() {
     console.log('Im running up that hill');
-    if (this.state.showModal) this.setState({ showModal: false });
-    else this.setState({ showModal: true });
+    if (this.state.showDialog) this.setState({ showDialog: false });
+    else this.setState({ Dialog: true });
   }
 
-  toggleModalSubmission() {
+  toggleDialogSubmission() {
     // modal for success message
   }
 
@@ -36,15 +36,15 @@ class App extends Component {
     // console.log(requestOptions.body);
     fetch('/bios/', requestOptions)
       .then(response => response.json())
-      // .then(() => this.toggleModal())
+      // .then(() => this.toggleDialog())
       .catch(err => console.log('ERROR: Unable to create profile', err));
   }
 
   render() {
     return (
       <div>
-        <MainContainer id="main-container" toggleModal={ this.toggleModal }/>
-        <Form id="modal" show={ this.state.showModal } toggleModal={ this.toggleModal } postProfile={ this.postProfile }/>
+        <MainContainer id="main-container" toggleDialog={ this.toggleDialog }/>
+        <Form id="dialog" show={ this.state.showDialog } toggleDialog={ this.toggleDialog } postProfile={ this.postProfile }/>
       </div>
     );        
   }

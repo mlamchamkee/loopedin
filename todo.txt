@@ -1,4 +1,4 @@
-[ ] submission form modal for profile
+[ ] submission form dialog for profile
 https://codepen.io/chriscoyier/pen/NgNymx
 https://blog.bitsrc.io/build-a-simple-modal-component-with-react-16decdc111a6
 https://vegibit.com/bootstrap-modal-form-examples/
