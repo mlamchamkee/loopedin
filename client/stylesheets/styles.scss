@@ -1,3 +1,10 @@
+$cs-teal: #4acfb2;
+$cs-teal-light: #71dac4;
+$cs-teal-gradient: linear-gradient(0deg,#3da991,#71dac4);
+$cs-blue: #0f3181;
+$cs-blue-light: #3a63c4;
+$hover-opacity: 0.6;
+
 body {
     background: #F8FAFC;
     font-family: 'Montserrat', sans-serif;
@@ -11,7 +18,7 @@ body {
   }
 
   .iris {
-    background-color: #65BEC7;
+    background-color: $cs-blue;
     border-radius: 50%;
     height: 95px;
     width: 95px;   
@@ -21,7 +28,7 @@ body {
     cursor: pointer;
   
     &:hover {
-      background-color: darken(white, 15);
+      background-color: lighten($cs-blue, 15);
     }
   
   }
@@ -32,6 +39,9 @@ body {
     height: 95px;
     margin: 1rem auto;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     // background: radial-gradient(orchid, slateBlue);
     // color: white;
     border-radius: 50%;
@@ -44,4 +54,18 @@ body {
     offset-distance: calc(var(--i) * var(--char-index));
   /*  offset-anchor: top; FF only */
     padding-top: 4rem;
+  }
+
+  button {
+    background-color: $cs-teal;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+  }
+  
+  button:hover {
+    background-color: lighten($cs-teal, 20);
   }

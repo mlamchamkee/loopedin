@@ -1,0 +1,3 @@
+[ ] Curve text of names and titles around circles
+[ ] pictures as assets in the repo
+[ ] submission form for profile
