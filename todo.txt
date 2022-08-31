@@ -1,3 +1,13 @@
-[ ] Curve text of names and titles around circles
+[ ] submission form modal for profile
+[ ] submit button to submit profile
+[ ] search functionality to filter users with hobbies
+[ ] search functionality to filter users with skills
 [ ] pictures as assets in the repo
-[ ] submission form for profile
+
+[ ] containers for profiles
+[ ] on hover show badges
+[ ] on click show profile page
+[ ] Curve text of names and titles around circles
+
+STRETCH FEATURE
+[ ] OAuth
