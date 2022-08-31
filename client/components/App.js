@@ -7,6 +7,7 @@ class App extends Component {
     super();
     this.state = { showModal: true };
     this.toggleModal = this.toggleModal.bind(this);
+    this.postProfile = this.postProfile.bind(this);
   }
 
   toggleModal() {
@@ -43,7 +44,7 @@ class App extends Component {
     return (
       <div>
         <MainContainer id="main-container" toggleModal={ this.toggleModal }/>
-        <Form id="modal" show={ this.state.showModal } postProfile={ this.postProfile }/>
+        <Form id="modal" show={ this.state.showModal } toggleModal={ this.toggleModal } postProfile={ this.postProfile }/>
       </div>
     );        
   }

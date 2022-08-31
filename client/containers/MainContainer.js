@@ -11,7 +11,7 @@ class MainContainer extends Component {
         <div className="outerBox">
           <h1 id="header">The Codesmith Family</h1>
           <OuterIris/>
-          <Button classname="button" innerText="Create Profile" handleClick={this.props.toggleModal}/>
+          <Button classname="button" innerText="Create Profile" toggleModal={this.props.toggleModal}/>
         </div>
       </div>
     );
