@@ -54,11 +54,10 @@ class App extends Component {
   getAll() {
     fetch('/bios/')
       .then(response => response.json())
-      .then((data) => {
-        // console.log('GET ALL Res', data);
-        // console.log('GET ALL State before', this.state.bios);
-        this.setState({ bios: data });
-      })
+      .then((data) => this.setState({ bios: data }))
+    // console.log('GET ALL Res', data);
+    // console.log('GET ALL State before', this.state.bios);
+      // })
       // .then((data) => {
       //   console.log('GET ALL State after', this.state.bios);
       // })
@@ -70,14 +69,17 @@ class App extends Component {
   }
 
   search() {
-    const skill = document.querySelector('#search').value;
+    let skill = document.querySelector('#search');
+    if (skill) skill = skill.value;
     console.log('Search', skill);
 
     if (skill) {
       fetch(`/search/${skill}`)
         .then(response => response.json())
         .then((data) => this.setState({ bios: data }))
-        .then((data) => console.log('SEARCH', data))
+        .then((data) => {
+          console.log('SEARCH', data);
+        })
         .catch(err => console.log('ERROR: Unable to search skill', err));
     }
     else this.getAll();

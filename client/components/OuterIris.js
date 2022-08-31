@@ -4,7 +4,7 @@ import Iris from './Iris.js';
 class OuterIris extends React.Component {
   constructor(props) {
     super(props);
-    this.props.getAll();
+    this.props.search();
   }
   // componentDidMount() {
   // fetch('/bios/')
