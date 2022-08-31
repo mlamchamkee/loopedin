@@ -3,14 +3,15 @@ import { Button } from '@mui/material';
 
 class CreateButton extends React.Component {
   render() {
-    console.log('button props', this.props.toggleDialog);
+    const { className, toggleDialog } = this.props;
+    console.log('button props', this.props);
     return (
       <div>
         <button
           type="button" 
-          className={this.props.className} 
-          onClick={this.props.toggleDialog}>
-          {this.props.innerText}
+          className={className} 
+          onClick={toggleDialog}>
+          Create Profile
         </button> 
       </div>
       

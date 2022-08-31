@@ -6,10 +6,12 @@ import { Delete as DeleteIcon } from '@mui/icons-material';
 
 class Form extends React.Component {
   render() {
+    const { show, showModal, toggleDialog, postProfile } = this.props;
+
     return (
       <Dialog
-        open={ this.props.show }
-        onClose={ this.props.showModal }
+        open={ show }
+        onClose={ showModal }
         scroll="paper"
       >
         <DialogTitle id="scroll-dialog-title">Create Codesmith Profile</DialogTitle>
@@ -37,13 +39,13 @@ class Form extends React.Component {
         </DialogContent>
         <DialogActions>
           <Button 
-            onClick={ this.props.toggleDialog } 
+            onClick={ toggleDialog } 
             endIcon={ <DeleteIcon/> }
           >
             Cancel
           </Button>
           <Button 
-            onClick={ this.props.postProfile } 
+            onClick={ postProfile } 
             endIcon={ <SendIcon/> }
           >
             Create
