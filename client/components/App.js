@@ -7,7 +7,7 @@ class App extends Component {
     super();
     console.log('App constructed');
     this.state = { 
-      showDialog: true,
+      showDialog: false,
       bios: [],
     };
 
@@ -52,14 +52,18 @@ class App extends Component {
   }
 
   getAll() {
-    console.log('Fetching All - Async');
     fetch('/bios/')
       .then(response => response.json())
-      .then((data) => console.log('GET ALL Res', data))
-      .then((data) => this.setState({ bios: data }))
-      .then((data) => console.log('GET ALL Data', data))
+      .then((data) => {
+        // console.log('GET ALL Res', data);
+        // console.log('GET ALL State before', this.state.bios);
+        this.setState({ bios: data });
+      })
+      // .then((data) => {
+      //   console.log('GET ALL State after', this.state.bios);
+      // })
       .catch(err => console.log('ERROR: Unable to getAll Bios', err));
-    
+
     // const bios = await fetch('/bios/');
     // await this.setState({ bios: bios.json() });
     // console.log('GET ALL Res', bios);

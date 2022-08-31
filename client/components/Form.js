@@ -5,6 +5,7 @@ import { Delete as DeleteIcon } from '@mui/icons-material';
 // import ChipInput from 'material-ui-chip-input';
 
 class Form extends React.Component {
+
   render() {
     const { show, showModal, toggleDialog, postProfile } = this.props;
 

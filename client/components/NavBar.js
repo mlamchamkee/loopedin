@@ -47,6 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 class NavBar extends Component {
+
   render() {
     return (
       <AppBar position="static">

@@ -2,6 +2,10 @@ import React from 'react';
 import Iris from './Iris.js';
 
 class OuterIris extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props.getAll();
+  }
   // componentDidMount() {
   // fetch('/bios/')
   //   .then(res => res.json())
@@ -15,9 +19,9 @@ class OuterIris extends React.Component {
   //   .catch(err => console.log('OuterIris.componentDidMount: get bios: ERROR: ', err));
   // }
 
-  componentDidMount() {
-    this.props.getAll();
-  }
+  // componentDidMount() {
+  //   this.props.getAll();
+  // }
 
   render() {
     const { bios } = this.props;
