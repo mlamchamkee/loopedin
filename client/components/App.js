@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   toggleDialog() {
-    console.log('Im running up that hill');
+    console.log('toggleDialog running');
     if (this.state.showDialog) this.setState({ showDialog: false });
     else this.setState({ showDialog: true });
   }
@@ -36,15 +36,21 @@ class App extends Component {
     // console.log(requestOptions.body);
     fetch('/bios/', requestOptions)
       .then(response => response.json())
-      // .then(() => this.toggleDialog())
+      .then(() => this.toggleDialog())
       .catch(err => console.log('ERROR: Unable to create profile', err));
   }
 
   render() {
     return (
       <div>
-        <MainContainer id="main-container" toggleDialog={ this.toggleDialog }/>
-        <Form id="dialog" show={ this.state.showDialog } toggleDialog={ this.toggleDialog } postProfile={ this.postProfile }/>
+        <MainContainer 
+          id="main-container" 
+          toggleDialog={ this.toggleDialog }/>
+        <Form 
+          id="dialog" 
+          show={ this.state.showDialog } 
+          toggleDialog={ this.toggleDialog } 
+          postProfile={ this.postProfile }/>
       </div>
     );        
   }
