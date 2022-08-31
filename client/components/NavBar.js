@@ -77,7 +77,7 @@ class NavBar extends Component {
               placeholder="Search resources…"
               // inputProps={{ 'aria-label': 'search', 'onKeyDown': this.props.search }}
               inputProps={{ 'aria-label': 'search' }}
-              onChange={this.props.search}
+              // onChange={this.props.search}
               // onKeyDown={this.props.search}
             />
           </Search>

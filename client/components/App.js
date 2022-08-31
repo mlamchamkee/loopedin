@@ -5,13 +5,20 @@ import Form from './Form.js';
 class App extends Component {
   constructor() {
     super();
+    console.log('App constructed');
     this.state = { 
       showDialog: true,
-      showBios: []
+      bios: [],
     };
+
+    // Binding functions to App context
     this.toggleDialog = this.toggleDialog.bind(this);
     this.postProfile = this.postProfile.bind(this);
+    this.getAll = this.getAll.bind(this);
     this.search = this.search.bind(this);
+
+    // Async fetch call to get all the bios and update state
+    // this.getAll();
   }
 
   toggleDialog() {
@@ -44,14 +51,32 @@ class App extends Component {
       .catch(err => console.log('ERROR: Unable to create profile', err));
   }
 
+  getAll() {
+    console.log('Fetching All - Async');
+    fetch('/bios/')
+      .then(response => response.json())
+      .then((data) => console.log('GET ALL Res', data))
+      .then((data) => this.setState({ bios: data }))
+      .then((data) => console.log('GET ALL Data', data))
+      .catch(err => console.log('ERROR: Unable to getAll Bios', err));
+    
+    // const bios = await fetch('/bios/');
+    // await this.setState({ bios: bios.json() });
+    // console.log('GET ALL Res', bios);
+  }
+
   search() {
     const skill = document.querySelector('#search').value;
     console.log('Search', skill);
 
-    fetch(`/search/${skill}`)
-      .then(response => response.json())
-      .then((data) => console.log(data))
-      .catch(err => console.log('ERROR: Unable to search skill', err));
+    if (skill) {
+      fetch(`/search/${skill}`)
+        .then(response => response.json())
+        .then((data) => this.setState({ bios: data }))
+        .then((data) => console.log('SEARCH', data))
+        .catch(err => console.log('ERROR: Unable to search skill', err));
+    }
+    else this.getAll();
   }
 
   render() {
@@ -59,6 +84,7 @@ class App extends Component {
       <div>
         <MainContainer 
           id="main-container" 
+          getAll={ this.getAll }
           toggleDialog={ this.toggleDialog }
           search={ this.search }
           bios={ this.state.bios }

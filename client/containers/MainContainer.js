@@ -4,17 +4,23 @@ import OuterIris from '../components/OuterIris.js';
 import { Button } from '@mui/material';
 
 class MainContainer extends Component {
+  // componentDidMount() {
+  //   this.props.getAll();
+  // }
   render() {
     console.log('main container props', this.props);
+
+    const { search, bios, toggleDialog, getAll } = this.props;
+
     return(
       <div className="container">
         <div className="outerBox">
-          <NavBar search={ this.props.search }/>
-          <OuterIris />
+          <NavBar search={ search }/>
+          <OuterIris getAll={ getAll } bios={ bios }/>
           <Button 
             id="dialog-button" 
             variant="contained" 
-            onClick={ this.props.toggleDialog } 
+            onClick={ toggleDialog } 
           >
             Create Profile
           </Button>
