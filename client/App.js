@@ -16,14 +16,11 @@ class App extends Component {
     this.search = this.search.bind(this);
   }
 
+  // opens and closes dialog box to submit user profiles
   toggleDialog() {
     console.log('toggleDialog running');
     if (this.state.showDialog) this.setState({ showDialog: false });
     else this.setState({ showDialog: true });
-  }
-
-  toggleDialogSubmission() {
-    // modal for success message
   }
 
   // submits a post request to save profile on the database
@@ -38,12 +35,13 @@ class App extends Component {
       })
     };
 
-    // console.log('Handle Click invoked');
-    // console.log(requestOptions.body);
     fetch('/bios/', requestOptions)
       .then(response => response.json())
       .then(() => this.toggleDialog())
       .catch(err => console.log('ERROR: Unable to create profile', err));
+    
+    // submit a GET request to update all bios
+    this.search();
   }
 
   search(e) {
@@ -64,7 +62,6 @@ class App extends Component {
       //   console.log('SEARCH', data);
       // })
       .catch(err => console.log('ERROR: Unable to search skill', err));
-
   }
 
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar.js';
-import OuterIris from '../components/OuterIris.js';
+import BioContainer from './BioContainer.js';
 import { Button } from '@mui/material';
 
 class MainContainer extends Component {
@@ -13,7 +13,7 @@ class MainContainer extends Component {
       <div className="container">
         <div className="outerBox">
           <NavBar search={ search }/>
-          <OuterIris search={ search } bios={ bios }/>
+          <BioContainer search={ search } bios={ bios }/>
           <Button 
             id="dialog-button" 
             variant="contained" 

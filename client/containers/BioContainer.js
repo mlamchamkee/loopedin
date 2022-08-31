@@ -1,16 +1,17 @@
 import React from 'react';
-import Iris from './Iris.js';
+import Iris from '../components/Iris.js';
 
-class OuterIris extends React.Component {
+class BioContainer extends React.Component {
   constructor(props) {
     super(props);
     this.props.search();
+    console.log('BioContainer Constructuted');
   }
 
   render() {
     const { bios } = this.props;
     const bioElems = [];
-    console.log('OuterIris Bios', bios);
+    console.log('BioContainer Bios', bios);
     if (bios) {
       for (const bio of bios) {
         bioElems.push(<Iris key={bio.gitHub} name={bio.fullName}/>);
@@ -18,11 +19,11 @@ class OuterIris extends React.Component {
     }
 
     return (
-      <div id="outer-iris" className="outer-iris">
+      <div id="bio-container" className="outer-iris">
         {bioElems}
       </div>
     );
   }
 }
 
-export default OuterIris;
+export default BioContainer;
