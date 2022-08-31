@@ -3,10 +3,10 @@ import Avatar from './Avatar.js';
 class Iris extends React.Component {
   render() {
     return (
-      <div className="iris">
+      <span className="iris">
         <p>{this.props.name}</p>
         {/* <Avatar/> */}
-      </div>
+      </span>
     );
   }
 }

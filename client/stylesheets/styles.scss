@@ -78,6 +78,8 @@ button:hover {
   background-color: lighten($cs-teal, 20);
 }
 
-// #outer-iris {
-//   display: grid,
-// }
+#bio-container {
+  display: grid;
+  // grid-template: auto;
+  grid-template-columns: repeat(auto-fit, minmax(max(120px, 12.5%), 1fr));
+}
