@@ -24,8 +24,7 @@ const baseSchema = new Schema({
   // goals: {type: String, required: true},
   // hobbies: {type: String, required: true},
   // funFact: {type: String, required: true},
-  // skills: {type: String, required: true},
-//   homeworld: String,
+  skills: [String]
 });
 
 

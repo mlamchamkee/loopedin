@@ -25,7 +25,7 @@ bioController.findBios = (req, res, next) => {
 bioController.addBio = (req, res, next) => {
   // error handling for empty bios provided
   // console.log('attempting to create bio');
-  // console.log(req.body);
+  // console.log('addbio re.body', req.body);
   if (!Object.keys(req.body).length) return next({
     log: 'Request body is empty',
     message: { err: 'Required information not provided'},
