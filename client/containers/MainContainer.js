@@ -4,9 +4,6 @@ import OuterIris from '../components/OuterIris.js';
 import { Button } from '@mui/material';
 
 class MainContainer extends Component {
-  // componentDidMount() {
-  //   this.props.getAll();
-  // }
   render() {
     console.log('main container props', this.props);
 

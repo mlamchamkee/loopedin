@@ -47,8 +47,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 class NavBar extends Component {
-
   render() {
+    const { search } = this.props;
     return (
       <AppBar position="static">
         <Toolbar>
@@ -78,7 +78,7 @@ class NavBar extends Component {
               placeholder="Search resources…"
               // inputProps={{ 'aria-label': 'search', 'onKeyDown': this.props.search }}
               inputProps={{ 'aria-label': 'search' }}
-              // onChange={this.props.search}
+              onChange={ search }
               // onKeyDown={this.props.search}
             />
           </Search>

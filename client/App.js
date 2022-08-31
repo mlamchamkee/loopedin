@@ -10,15 +10,10 @@ class App extends Component {
       showDialog: false,
       bios: [],
     };
-
     // Binding functions to App context
     this.toggleDialog = this.toggleDialog.bind(this);
     this.postProfile = this.postProfile.bind(this);
-    this.getAll = this.getAll.bind(this);
     this.search = this.search.bind(this);
-
-    // Async fetch call to get all the bios and update state
-    // this.getAll();
   }
 
   toggleDialog() {
@@ -51,38 +46,25 @@ class App extends Component {
       .catch(err => console.log('ERROR: Unable to create profile', err));
   }
 
-  getAll() {
-    fetch('/bios/')
-      .then(response => response.json())
-      .then((data) => this.setState({ bios: data }))
-    // console.log('GET ALL Res', data);
-    // console.log('GET ALL State before', this.state.bios);
-      // })
-      // .then((data) => {
-      //   console.log('GET ALL State after', this.state.bios);
-      // })
-      .catch(err => console.log('ERROR: Unable to getAll Bios', err));
-
-    // const bios = await fetch('/bios/');
-    // await this.setState({ bios: bios.json() });
-    // console.log('GET ALL Res', bios);
-  }
-
-  search() {
-    let skill = document.querySelector('#search');
-    if (skill) skill = skill.value;
+  search(e) {
+    let skill;
+    if (e) skill = e.target.value;
     console.log('Search', skill);
 
-    if (skill) {
-      fetch(`/search/${skill}`)
-        .then(response => response.json())
-        .then((data) => this.setState({ bios: data }))
-        .then((data) => {
-          console.log('SEARCH', data);
-        })
-        .catch(err => console.log('ERROR: Unable to search skill', err));
-    }
-    else this.getAll();
+    let endpoint;
+    if (skill) endpoint = `/search/${skill}`;
+    else endpoint = '/bios/';
+
+    console.log('Search', endpoint);
+
+    fetch(endpoint)
+      .then(response => response.json())
+      .then((data) => this.setState({ bios: data }))
+      // .then((data) => {
+      //   console.log('SEARCH', data);
+      // })
+      .catch(err => console.log('ERROR: Unable to search skill', err));
+
   }
 
   render() {
@@ -90,7 +72,6 @@ class App extends Component {
       <div>
         <MainContainer 
           id="main-container" 
-          getAll={ this.getAll }
           toggleDialog={ this.toggleDialog }
           search={ this.search }
           bios={ this.state.bios }

@@ -6,22 +6,6 @@ class OuterIris extends React.Component {
     super(props);
     this.props.search();
   }
-  // componentDidMount() {
-  // fetch('/bios/')
-  //   .then(res => res.json())
-  //   .then((bios) => {
-  //     if (!Array.isArray(bios)) bios = [];
-  //     return this.setState({
-  //       bios,
-  //       fetchedBios: true
-  //     });
-  //   })
-  //   .catch(err => console.log('OuterIris.componentDidMount: get bios: ERROR: ', err));
-  // }
-
-  // componentDidMount() {
-  //   this.props.getAll();
-  // }
 
   render() {
     const { bios } = this.props;
