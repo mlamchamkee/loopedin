@@ -1,6 +1,7 @@
 import React from 'react';
+import { Avatar } from '@mui/material';
 
-class Avatar extends React.Component {
+class Ava extends React.Component {
   render() {
     return (
       <img url="https://www.w3schools.com/howto/img_avatar.png" className="avatar"/>
@@ -8,4 +9,4 @@ class Avatar extends React.Component {
   }
 }
 
-export default Avatar;
+export default Ava;
