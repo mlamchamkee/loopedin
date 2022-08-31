@@ -18,12 +18,12 @@ body {
 //   width: 60%;
 // }
 
-// .avatar {
-//   background-color: #FFFFFF;
-//   border-radius: 50%;
-//   height: 70px;
-//   width: 70px;
-// }
+.iris {
+  background-color: $cs-teal;
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+}
 
 .ava-container {
   // background-color: $cs-blue;
@@ -31,15 +31,12 @@ body {
   // height: 95px;
   // width: 95px;   
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  // align-items: center;
+  align-items: center;
   cursor: pointer;
-
-  &:hover {
-    background-color: lighten($cs-blue, 15);
-  }
 }
+
 .name {
   padding: 5px;
 }
@@ -67,19 +64,19 @@ p {
   padding-top: 4rem;
 }
 
-#create-button {
-  background-color: $cs-teal;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  border-radius: 8px;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
+// #create-button {
+//   background-color: $cs-teal;
+//   border: none;
+//   color: white;
+//   padding: 15px 32px;
+//   border-radius: 8px;
+//   font-size: 16px;
+//   transition-duration: 0.4s;
+// }
 
-#create-button:hover {
-  background-color: lighten($cs-teal, 20);
-}
+// #create-button:hover {
+//   background-color: lighten($cs-teal, 20);
+// }
 
 #bio-container {
   display: grid;

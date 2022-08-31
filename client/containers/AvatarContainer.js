@@ -7,11 +7,13 @@ class AvatarContainer extends React.Component {
     const { bio } = this.props;
     return (
       <div className="ava-container">
-        <Avatar 
-          alt={ bio.gitHub }
-          src="https://httpstatusdogs.com/img/100.jpg"
-          sx={ { width: 120, height: 120 } } 
-        />
+        <div className="iris">
+          <Avatar 
+            alt={ bio.gitHub }
+            src="https://httpstatusdogs.com/img/100.jpg"
+            sx={ { width: 120, height: 120 } } 
+          />
+        </div>  
         <div className="name">
           { bio.fullName }
         </div>
