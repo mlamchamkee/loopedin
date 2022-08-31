@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MainContainer from '../containers/MainContainer.js';
-import Form from './Form.js';
+import MainContainer from './containers/MainContainer.js';
+import Form from './components/Form.js';
 
 class App extends Component {
   constructor() {
