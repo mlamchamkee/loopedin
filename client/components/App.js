@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MainContainer from '../containers/MainContainer.js';
-import Modal from './Modal.js';
+import Form from './Form.js';
 
 class App extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div>
         <MainContainer id="main-container" toggleModal={this.toggleModal}/>
-        <Modal id="modal" show={this.state.showModal}/>
+        <Form id="modal" show={this.state.showModal}/>
       </div>
     );        
   }

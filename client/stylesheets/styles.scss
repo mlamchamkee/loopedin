@@ -9,63 +9,71 @@ body {
     background: #F8FAFC;
     font-family: 'Montserrat', sans-serif;
   }
-  
-  .avatar {
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    height: 70px;
-    width: 70px;
+
+.form {
+  background: #F8FAFC;
+  display: flex;
+  justify-content: center;
+  height: 60%;
+  width: 60%;
+}
+
+.avatar {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+}
+
+.iris {
+  background-color: $cs-blue;
+  border-radius: 50%;
+  height: 95px;
+  width: 95px;   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($cs-blue, 15);
   }
 
-  .iris {
-    background-color: $cs-blue;
-    border-radius: 50%;
-    height: 95px;
-    width: 95px;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  
-    &:hover {
-      background-color: lighten($cs-blue, 15);
-    }
-  
-  }
-  
-  p {
-    position: relative;
-    width: 95px;
-    height: 95px;
-    margin: 1rem auto;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    // background: radial-gradient(orchid, slateBlue);
-    // color: white;
-    border-radius: 50%;
-  }
-  
-  .char {
-    --i: calc(100% / (var(--char-total) + 1));
-    position: absolute;
-    offset-path: path('M225.5.5c124.3 0 225 100.7 225 225s-100.7 225-225 225S.5 349.8.5 225.5 101.2.5 225.5.5');
-    offset-distance: calc(var(--i) * var(--char-index));
-  /*  offset-anchor: top; FF only */
-    padding-top: 4rem;
-  }
+}
 
-  button {
-    background-color: $cs-teal;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    border-radius: 8px;
-    font-size: 16px;
-    transition-duration: 0.4s;
-  }
-  
-  button:hover {
-    background-color: lighten($cs-teal, 20);
-  }
+p {
+  position: relative;
+  width: 95px;
+  height: 95px;
+  margin: 1rem auto;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  // background: radial-gradient(orchid, slateBlue);
+  // color: white;
+  border-radius: 50%;
+}
+
+.char {
+  --i: calc(100% / (var(--char-total) + 1));
+  position: absolute;
+  offset-path: path('M225.5.5c124.3 0 225 100.7 225 225s-100.7 225-225 225S.5 349.8.5 225.5 101.2.5 225.5.5');
+  offset-distance: calc(var(--i) * var(--char-index));
+/*  offset-anchor: top; FF only */
+  padding-top: 4rem;
+}
+
+button {
+  background-color: $cs-teal;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: lighten($cs-teal, 20);
+}
