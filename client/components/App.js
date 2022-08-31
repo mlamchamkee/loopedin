@@ -5,9 +5,13 @@ import Form from './Form.js';
 class App extends Component {
   constructor() {
     super();
-    this.state = { showDialog: true };
+    this.state = { 
+      showDialog: true,
+      showBios: []
+    };
     this.toggleDialog = this.toggleDialog.bind(this);
     this.postProfile = this.postProfile.bind(this);
+    this.search = this.search.bind(this);
   }
 
   toggleDialog() {
@@ -40,17 +44,31 @@ class App extends Component {
       .catch(err => console.log('ERROR: Unable to create profile', err));
   }
 
+  search() {
+    const skill = document.querySelector('#search').value;
+    console.log('Search', skill);
+
+    fetch(`/search/${skill}`)
+      .then(response => response.json())
+      .then((data) => console.log(data))
+      .catch(err => console.log('ERROR: Unable to search skill', err));
+  }
+
   render() {
     return (
       <div>
         <MainContainer 
           id="main-container" 
-          toggleDialog={ this.toggleDialog }/>
+          toggleDialog={ this.toggleDialog }
+          search={ this.search }
+          bios={ this.state.bios }
+        />
         <Form 
           id="dialog" 
           show={ this.state.showDialog } 
           toggleDialog={ this.toggleDialog } 
-          postProfile={ this.postProfile }/>
+          postProfile={ this.postProfile }
+        />
       </div>
     );        
   }

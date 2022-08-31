@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavBar from '../components/NavBar.js';
 import OuterIris from '../components/OuterIris.js';
 import { Button } from '@mui/material';
 
@@ -8,8 +9,8 @@ class MainContainer extends Component {
     return(
       <div className="container">
         <div className="outerBox">
-          <h1 id="header">The Codesmith Family</h1>
-          <OuterIris/>
+          <NavBar search={ this.props.search }/>
+          <OuterIris />
           <Button 
             id="dialog-button" 
             variant="contained" 
