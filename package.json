@@ -25,6 +25,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
+    "@mui/styled-engine-sc": "^5.10.3",
     "express": "^4.12.3",
     "mongoose": "^6.5.3",
     "react": "^18.2.0",

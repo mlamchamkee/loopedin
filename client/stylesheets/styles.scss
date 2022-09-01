@@ -6,7 +6,7 @@ $cs-blue-light: #3a63c4;
 $hover-opacity: 0.6;
 
 body {
-    background: #F8FAFC;
+    background: #f8fafc;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -52,8 +52,25 @@ body {
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
 }
+
 .name:hover {
   background-color: darker(#F8FAFC, 20);
+}
+
+.MuiDialogContent-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // flex-wrap: wrap;
+}
+
+
+#full-name{
+  width: 800px;
+}
+
+#github{
+  width: 800px;
 }
 
 p {

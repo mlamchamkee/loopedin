@@ -1,8 +1,9 @@
 import React from 'react';
 import { Modal, Box, Typography, FormGroup, TextField, Button, Chip, Paper, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@mui/material';
 import { Send as SendIcon } from '@mui/icons-material';
-import { Delete as DeleteIcon } from '@mui/icons-material';
+import { Close as CloseIcon } from '@mui/icons-material';
 // import ChipInput from 'material-ui-chip-input';
+import TextArea from './TextArea.js';
 
 class Form extends React.Component {
 
@@ -13,35 +14,24 @@ class Form extends React.Component {
       <Dialog
         open={ show }
         onClose={ showModal }
-        scroll="paper"
+        scroll="body"
       >
         <DialogTitle id="scroll-dialog-title">Create Codesmith Profile</DialogTitle>
-        <DialogContent dividers={scroll === 'paper'}>
-          <TextField id="full-name" label="Full Name" variant="outlined" />
-          {/* <TextField id="preferred-name" label="Preferred Name" variant="outlined" /> */}
-          <TextField id="github" label="GitHub" variant="outlined" />
-          {/* <TextField id="home" multiline fullWidth label="Where do you consider yourself from?" variant="outlined" />
-          <TextField id="preCodesmith" multiline fullWidth label="What were you doing before Codesmith?" variant="outlined" />
-          <TextField id="goals" multiline fullWidth label="What do you want to do with your coding skills?" variant="outlined" />
-          <TextField id="hobbies" multiline fullWidth label="What are your passions and hobbies?" variant="outlined" />
-          <TextField id="funFact" multiline fullWidth label="What is a fun or random fact about yourself?" variant="outlined" /> */}
-          {/* <ChipInput
-            label="Can be a resource for:"
-            defaultValue={[
-              'Impostor Sybdrome',
-              'React',
-              'OAuth',
-              'Redux'
-            ]}
-            fullWidth
-            id="skills"
-          /> */}
-          <TextField id="skills" fullWidth label="Can be a resource for:" variant="outlined" />
+        <DialogContent dividers={scroll === 'body'}>
+          <TextField id="full-name" label="Full Name" margin="normal" />
+          <TextField id="preferred-name" label="Preferred Name" margin="normal" />
+          <TextField id="github" label="GitHub" margin="normal" />
+          <TextField id="skills" fullWidth label="What topics are you a good resource for?" margin="normal" />
+          <TextArea id="home" label="Where do you consider yourself from?" />
+          <TextArea id="preCodesmith"  label="What were you doing before Codesmith?" />
+          <TextArea id="goals"  label="What do you want to do with your coding skills?"  />
+          <TextArea id="hobbies"  label="What are your passions and hobbies?"  />
+          {/* <TextArea id="funFact"  label="What is a fun or random fact about yourself?"  /> */}
         </DialogContent>
         <DialogActions>
           <Button 
             onClick={ toggleDialog } 
-            endIcon={ <DeleteIcon/> }
+            endIcon={ <CloseIcon/> }
           >
             Cancel
           </Button>

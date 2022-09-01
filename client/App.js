@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import MainContainer from './containers/MainContainer.js';
 import Form from './components/Form.js';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#3da991',
+      contrastText: '#fff'
+    },
+  },
+});
+
 
 class App extends Component {
   constructor() {
     super();
     console.log('App constructed');
     this.state = { 
-      showDialog: false,
+      showDialog: true,
       bios: [],
     };
     // Binding functions to App context
@@ -66,7 +77,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <ThemeProvider theme={theme}>
         <MainContainer 
           id="main-container" 
           toggleDialog={ this.toggleDialog }
@@ -80,7 +91,7 @@ class App extends Component {
           toggleDialog={ this.toggleDialog } 
           postProfile={ this.postProfile }
         />
-      </div>
+      </ThemeProvider>
     );        
   }
 }
