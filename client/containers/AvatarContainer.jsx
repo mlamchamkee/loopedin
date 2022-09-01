@@ -13,7 +13,7 @@ class AvatarContainer extends React.Component {
     const { bio, toggleDialog } = this.props;
     console.log('avatar container props', this.props);
     return (
-      <div className="ava-container">
+      <div className="avatar-container">
         <Button className="iris" onClick={ toggleDialog }>
           <Avatar 
             alt={ bio.gitHub }

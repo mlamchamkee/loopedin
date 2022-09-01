@@ -15,7 +15,7 @@ class BioContainer extends React.Component {
     // console.log('BioContainer Bios', bios);
     if (bios) {
       for (const bio of bios) {
-        bioElems.push(<AvatarContainer bio={ bio } toggleBio={ toggleBio }/>);
+        bioElems.push(<AvatarContainer key={bio.gitHub} bio={ bio } toggleBio={ toggleBio }/>);
       }
     }
 

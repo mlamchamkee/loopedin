@@ -9,16 +9,19 @@ class BaseCard
     const { question, answer } = this.props;
 
     return (
-      <Card sx={{ minWidth: 400 }}>
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {question}
-          </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.primary">
-            {answer}
-          </Typography>
-        </CardContent>
-      </Card>
+      <div className="card-container">
+        <Card>
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="div" color="text.primary">
+              {question}
+            </Typography>
+            <Typography variant="body3" color="text.secondary">
+              {answer}
+            </Typography>
+          </CardContent>
+        </Card>
+      </div>
+
     );
   }
 }

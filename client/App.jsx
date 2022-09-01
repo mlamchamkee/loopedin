@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import MainContainer from './containers/MainContainer.jsx';
 import Form from './components/Form.jsx';
-// import BioDialog from './components/BioDialog.jsx';
+import BioDialog from './components/BioDialog.jsx';
 
 const theme = createTheme({
   palette: {
@@ -13,6 +13,12 @@ const theme = createTheme({
       contrastText: '#fff'
     },
   },
+  // typography: {
+  //   fontFamily: [
+  //     'Montserrat',
+  //     'sans-serif',
+  //   ].join(','),
+  // },
 });
 
 class App extends Component {
@@ -108,12 +114,12 @@ class App extends Component {
           toggleDialog={ this.toggleDialog } 
           postProfile={ this.postProfile }
         />
-        {/* <BioDialog 
+        <BioDialog 
           id="dialog-bio" 
           show={ this.state.showBio } 
           toggleBio={ this.toggleBio } 
           bio={ this.state.bios[this.state.selectedInd] }
-        /> */}
+        />
       </ThemeProvider>
     );        
   }
