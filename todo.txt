@@ -13,7 +13,7 @@ https://vegibit.com/bootstrap-modal-form-examples/
 [x] escape key closes any dialog box
 [x] dynamic profile delete onclick
 [x] show pictures in avatars
-[ ] show pictures in bio
+[x] show pictures in bio
 [ ] build database
 
 

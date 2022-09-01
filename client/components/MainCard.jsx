@@ -12,13 +12,13 @@ class MainCard
     return (
       <div className="main-card-container">
         <Card sx={{ display: 'flex' }}>
-          {/* <Box Box sx={{ display: 'flex', alignItems: 'center' }}>
-            </Box> */}
-          <Avatar 
-            alt={ bio.gitHub }
-            src={ `build/assets/${bio.gitHub}.jpg` }
-            sx={ { width: 120, height: 120 } } 
-          />
+          <Box  sx={{ display: 'flex', alignItems: 'center', justifyContents: 'center', marginLeft: '10px' }}>
+            <Avatar 
+              alt={ bio.gitHub }
+              src={ `build/assets/${bio.gitHub}.jpg` }
+              sx={ { width: 120, height: 120 } } 
+            />
+          </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <CardContent sx={{ flex: '1 0 auto' }}>
               <Typography gutterBottom variant="h4">
