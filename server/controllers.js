@@ -14,7 +14,7 @@ bioController.getAllBios = (req, res, next) => {
 };
 
 bioController.findBios = (req, res, next) => {
-  models.Bio.find({ skills: req.params.skill })
+  models.Bio.find({ skills: { $regex: `${req.params.skill}`, $options: 'i' } } )
     .then(data => {
       res.locals.bios = data;
       return next();

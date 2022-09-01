@@ -5,9 +5,11 @@ https://vegibit.com/bootstrap-modal-form-examples/
 
 [x] submit button to submit profile
 [x] search functionality to filter users with skills
+[x] build modal for profiles
+[ ] how to know which container thing is selected when clicked
 [ ] onclick to show modals for profiles
 [ ] build database
-[ ] pictures as assets in the repo
+[ ] show pictures in avatars
 
 
 STRETCH FEATURE
