@@ -2,9 +2,6 @@ import React from 'react';
 
 import { Avatar, Button } from '@mui/material';
 
-import '../assets/crgb0s.jpg';
-import '../assets/mlamchamkee.jpg';
-
 const handleClick = () => {
   console.log('click');
 };
@@ -18,7 +15,6 @@ class AvatarContainer extends React.Component {
           <Avatar 
             alt={ bio.gitHub }
             src={ `build/assets/${bio.gitHub}.jpg` }
-            // src={ 'build/assets/mlamchamkee.jpg' }
             // src="https://httpstatusdogs.com/img/300.jpg"
             sx={ { width: 120, height: 120 } } 
           />
