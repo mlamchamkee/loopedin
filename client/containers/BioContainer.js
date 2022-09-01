@@ -11,12 +11,12 @@ class BioContainer extends React.Component {
   }
 
   render() {
-    const { bios } = this.props;
+    const { bios, toggleBio } = this.props;
     const bioElems = [];
     // console.log('BioContainer Bios', bios);
     if (bios) {
       for (const bio of bios) {
-        bioElems.push(<AvatarContainer bio={bio}/>);
+        bioElems.push(<AvatarContainer bio={ bio } toggleBio={ toggleBio }/>);
         // bioElems.push(<Iris key={bio.gitHub} name={bio.fullName}/>);
       }
     }

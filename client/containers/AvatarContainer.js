@@ -4,19 +4,21 @@ import { Avatar } from '@mui/material';
 
 class AvatarContainer extends React.Component {
   render() {
-    const { bio } = this.props;
+    const { bio, toggleDialog } = this.props;
     return (
       <div className="ava-container">
-        <div className="iris">
+        <button className="iris" onClick={ toggleDialog }>
           <Avatar 
             alt={ bio.gitHub }
             src="https://httpstatusdogs.com/img/100.jpg"
             sx={ { width: 120, height: 120 } } 
+            // onClick={ toggleDialog }
           />
-        </div>  
-        <div className="name">
+          {/* onClick={ toggleDialog } */}
+        </button>  
+        <button className="name" onClick={ toggleDialog }>
           { bio.fullName }
-        </div>
+        </button>
       </div>
     );
   }

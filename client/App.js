@@ -70,6 +70,7 @@ class App extends Component {
         <MainContainer 
           id="main-container" 
           toggleDialog={ this.toggleDialog }
+          toggleBio={ this.toggleDialog }
           search={ this.search }
           bios={ this.state.bios }
         />

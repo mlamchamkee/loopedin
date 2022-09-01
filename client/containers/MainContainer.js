@@ -6,17 +6,17 @@ class MainContainer extends Component {
   render() {
     console.log('main container props', this.props);
 
-    const { search, bios, toggleDialog } = this.props;
+    const { search, bios, toggleBio } = this.props;
 
     return(
       <div id="main-container" className="container">
-        <NavBar search={ search }/>
-        <BioContainer search={ search } bios={ bios }/>
+        <NavBar search={ search } />
+        <BioContainer search={ search } bios={ bios } toggleBio={ toggleBio } />
         <div id="button-container">
           <Button 
             id="dialog-button" 
             variant="contained" 
-            onClick={ toggleDialog } 
+            onClick={ toggleBio } 
           >
           Create Profile
           </Button>
