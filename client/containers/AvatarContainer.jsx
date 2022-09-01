@@ -1,5 +1,5 @@
 import React from 'react';
-import Iris from '../components/Iris.js';
+
 import { Avatar, Button } from '@mui/material';
 
 class AvatarContainer extends React.Component {
@@ -11,14 +11,14 @@ class AvatarContainer extends React.Component {
         <Button className="iris" onClick={ toggleDialog }>
           <Avatar 
             alt={ bio.gitHub }
-            src="https://httpstatusdogs.com/img/100.jpg"
+            src={ `client/assets/${bio.gitHub} }`}
             sx={ { width: 120, height: 120 } } 
             // onClick={ toggleDialog }
           />
           {/* onClick={ toggleDialog } */}
         </Button>  
         <Button className="name" onClick={ toggleDialog }>
-          { bio.fullName }
+          { bio.preferredName }
         </Button>
       </div>
     );

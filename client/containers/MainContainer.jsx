@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from '@mui/material';
-import BioContainer from './BioContainer.js';
-import NavBar from '../components/NavBar.js';
+
+import BioContainer from './BioContainer.jsx';
+import NavBar from '../components/NavBar.jsx';
+
 class MainContainer extends Component {
   render() {
-    console.log('main container props', this.props);
-
     const { search, bios, toggleBio } = this.props;
 
     return(
@@ -24,7 +24,6 @@ class MainContainer extends Component {
       </div>
     );
   }
-
 }
 
 export default MainContainer;

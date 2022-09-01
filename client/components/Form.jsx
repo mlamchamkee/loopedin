@@ -1,9 +1,10 @@
 import React from 'react';
-import { Modal, Box, Typography, FormGroup, TextField, Button, Chip, Paper, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText } from '@mui/material';
+
+import { TextField, Button, Dialog, DialogTitle, DialogActions, DialogContent } from '@mui/material';
 import { Send as SendIcon } from '@mui/icons-material';
 import { Close as CloseIcon } from '@mui/icons-material';
-// import ChipInput from 'material-ui-chip-input';
-import TextArea from './TextArea.js';
+
+import TextArea from './TextArea.jsx';
 
 class Form extends React.Component {
 
@@ -26,7 +27,7 @@ class Form extends React.Component {
           <TextArea id="preCodesmith"  label="What were you doing before Codesmith?" />
           <TextArea id="goals"  label="What do you want to do with your coding skills?"  />
           <TextArea id="hobbies"  label="What are your passions and hobbies?"  />
-          {/* <TextArea id="funFact"  label="What is a fun or random fact about yourself?"  /> */}
+          <TextArea id="funFact"  label="What is a fun or random fact about yourself?"  />
         </DialogContent>
         <DialogActions>
           <Button 
@@ -43,11 +44,9 @@ class Form extends React.Component {
           </Button>
         </DialogActions>
       </Dialog>
-
     );
   }
 }
-// }
 
 export default Form;
 

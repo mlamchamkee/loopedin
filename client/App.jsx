@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import MainContainer from './containers/MainContainer.js';
-import Form from './components/Form.js';
+
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+import MainContainer from './containers/MainContainer.jsx';
+import Form from './components/Form.jsx';
 
 const theme = createTheme({
   palette: {
@@ -11,7 +13,6 @@ const theme = createTheme({
     },
   },
 });
-
 
 class App extends Component {
   constructor() {
@@ -41,8 +42,14 @@ class App extends Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         fullName: document.querySelector('#full-name').value,
-        // preferredName: document.querySelector('#preferred-name'),
+        preferredName: document.querySelector('#preferred-name').value,
         gitHub: document.querySelector('#github').value,
+        home: document.querySelector('#home').value,
+        preCodesmith: document.querySelector('#preCodesmith').value,
+        goals: document.querySelector('#goals').value,
+        hobbies: document.querySelector('#hobbies').value,
+        funFact: document.querySelector('#funFact').value,
+        skills: document.querySelector('#skills').value,
       })
     };
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import Iris from '../components/Iris.js';
-import AvatarContainer from './AvatarContainer.js';
-import { Avatar } from '@mui/material';
+
+import AvatarContainer from './AvatarContainer.jsx';
 
 class BioContainer extends React.Component {
   constructor(props) {
@@ -17,7 +16,6 @@ class BioContainer extends React.Component {
     if (bios) {
       for (const bio of bios) {
         bioElems.push(<AvatarContainer bio={ bio } toggleBio={ toggleBio }/>);
-        // bioElems.push(<Iris key={bio.gitHub} name={bio.fullName}/>);
       }
     }
 

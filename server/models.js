@@ -19,12 +19,12 @@ const baseSchema = new Schema({
   fullName: {type: String, required: true},
   preferredName: String,
   gitHub: {type: String, required: true},
-  // home: {type: String, required: true},
-  // preCodesmith: {type: String, required: true},
-  // goals: {type: String, required: true},
-  // hobbies: {type: String, required: true},
-  // funFact: {type: String, required: true},
-  skills: [String]
+  skills: [String],
+  home: String,
+  preCodesmith: String,
+  goals: String,
+  hobbies: String,
+  funFact: String,
 });
 
 

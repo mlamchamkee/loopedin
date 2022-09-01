@@ -32,7 +32,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [new HtmlWebpackPlugin({ template: './client/index.html' })],
-  // resolve: { extensions: ['*', '.js', '.jsx'] },
+  resolve: { extensions: ['*', '.js', '.jsx'] },
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'build'),

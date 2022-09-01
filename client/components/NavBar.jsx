@@ -1,6 +1,7 @@
+import React, { Component } from 'react';
+
 import { AppBar, InputBase, Toolbar, Typography } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
-import React, { Component } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
