@@ -10,21 +10,20 @@ const handleClick = () => {
 };
 class AvatarContainer extends React.Component {
   render() {
-    const { bio, toggleDialog } = this.props;
-    console.log('avatar container props', this.props);
+    const { bio, toggleBio } = this.props;
+    // console.log('avatar container props', this.props);
     return (
       <div className="avatar-container">
-        <Button className="iris" onClick={ toggleDialog }>
+        <Button id= { bio.gitHub } className="iris" onClick={ toggleBio }>
           <Avatar 
             alt={ bio.gitHub }
             // src={ `client/assets/${bio.gitHub}.jpg` }
             src="https://httpstatusdogs.com/img/300.jpg"
             sx={ { width: 120, height: 120 } } 
-            // onClick={ toggleDialog }
           />
-          {/* onClick={ toggleDialog } */}
+          {/* onClick={ toggleBio } */}
         </Button>  
-        <Button className="name" onClick={ handleClick }>
+        <Button id= { bio.gitHub } className="name" onClick={ toggleBio }>
           { bio.preferredName }
         </Button>
       </div>

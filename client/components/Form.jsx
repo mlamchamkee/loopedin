@@ -9,7 +9,7 @@ import TextArea from './TextArea.jsx';
 class Form extends React.Component {
 
   render() {
-    const { show, toggleDialog, postProfile, getAll } = this.props;
+    const { show, toggleCreate, postProfile, getAll } = this.props;
 
     return (
       <Dialog
@@ -31,7 +31,7 @@ class Form extends React.Component {
         </DialogContent>
         <DialogActions>
           <Button 
-            onClick={ toggleDialog } 
+            onClick={ toggleCreate } 
             endIcon={ <CloseIcon/> }
           >
             Cancel

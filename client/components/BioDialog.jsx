@@ -17,7 +17,7 @@ class BioDialog extends React.Component {
           open={ show }
           onClose={ getAll }
           scroll="body"
-          fullWidth="true"
+          fullWidth
           maxWidth="md"
         >
           <DialogTitle id="scroll-dialog-title">LoopedIn Profile</DialogTitle>
@@ -32,7 +32,7 @@ class BioDialog extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button 
-              id="test" // ML
+              id={ bio.gitHub }
               onClick={ deleteBio } 
               endIcon={ <DeleteIcon/> }
             >

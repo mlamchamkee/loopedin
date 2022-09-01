@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar.jsx';
 
 class MainContainer extends Component {
   render() {
-    const { search, bios, toggleBio } = this.props;
+    const { search, bios, toggleCreate, toggleBio } = this.props;
 
     return(
       <div id="main-container" className="container">
@@ -16,7 +16,7 @@ class MainContainer extends Component {
           <Button 
             id="dialog-button" 
             variant="contained" 
-            onClick={ toggleBio } 
+            onClick={ toggleCreate } 
           >
           Create Profile
           </Button>

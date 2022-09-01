@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, Link, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 class MainCard
@@ -19,12 +19,12 @@ class MainCard
             <Typography gutterBottom variant="body3" component="div" color="text.secondary">
               {bio.fullName}
             </Typography>
-            <Typography variant="body3" color="text.secondary">
+            <Link href={`http://www.github.com/${bio.gitHub}`} rel="noreferrer" color="inherit">
               <div className="github-container">
                 <GitHubIcon/>
                 <span style={{marginLeft: '5px'}}>{bio.gitHub}</span>
               </div>
-            </Typography>
+            </Link>
           </CardContent>
         </Card>
       </div>

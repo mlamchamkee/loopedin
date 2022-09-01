@@ -21,27 +21,49 @@ class App extends Component {
     console.log('App constructed');
     this.state = { 
       showDialog: false,
-      showBio: true,
+      showBio: false,
       bios: [],
-      selectedInd: 2, // ML
+      selectedBio: undefined,
     };
     // Binding functions to App context
-    this.toggleDialog = this.toggleDialog.bind(this);
+    this.toggleCreate = this.toggleCreate.bind(this);
     this.toggleBio = this.toggleBio.bind(this);
     this.postProfile = this.postProfile.bind(this);
     this.search = this.search.bind(this);
     this.deleteProfile = this.deleteProfile.bind(this);
   }
 
+  // Allows users to press escape key to close Dialogs
+  componentDidMount() {
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.querySelector('body');
+
+      body.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          // console.log(e.key, 'pressed');
+          this.setState({
+            showDialog: false,
+            showBio: false,
+          });
+        }
+      }); 
+    });
+  }
   // opens and closes dialog box to submit user profiles
-  toggleDialog() {
+  toggleCreate() {
     // console.log('toggleDialog running');
     if (this.state.showDialog) this.setState({ showDialog: false });
     else this.setState({ showDialog: true });
   }
 
   // opens and closes dialog box viewing/deleting user profile
-  toggleBio() {
+  toggleBio(e) {
+    if (e) {
+      const gitHub = e.target.id || e.target.alt;
+      console.log('E Target', gitHub);
+      const selectedBio = this.state.bios.filter(obj => obj.gitHub === gitHub)[0];
+      this.setState({ selectedBio: selectedBio });
+    }
     console.log('toggle Bio running');
     if (this.state.showBio) this.setState({ showBio: false });
     else this.setState({ showBio: true });
@@ -67,7 +89,7 @@ class App extends Component {
 
     fetch('/bios/', requestOptions)
       .then(response => response.json())
-      .then(() => this.toggleDialog())
+      .then(() => this.toggleCreate())
       .catch(err => console.log('ERROR: Unable to create profile', err));
     
     // submit a GET request to update all bios
@@ -99,6 +121,8 @@ class App extends Component {
 
   // submits a DELETE request to delete a profile on the database, argument is event from button click
   deleteProfile(e) {
+    const gitHub = e.target.id || e.target.alt;
+    console.log(e.target);
     const requestOptions = {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -121,8 +145,8 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <MainContainer 
           id="main-container" 
-          toggleDialog={ this.toggleDialog }
-          toggleBio={ this.toggleDialog }
+          toggleCreate={ this.toggleCreate }
+          toggleBio={ this.toggleBio }
           search={ this.search }
           bios={ this.state.bios }
         />
@@ -130,7 +154,7 @@ class App extends Component {
           id="dialog" 
           show={ this.state.showDialog } 
           getAll = { this.search }
-          toggleDialog={ this.toggleDialog } 
+          toggleCreate={ this.toggleCreate } 
           postProfile={ this.postProfile }
         />
         <BioDialog 
@@ -139,7 +163,7 @@ class App extends Component {
           getAll = { this.search }
           deleteBio={ this.deleteProfile }
           toggleBio={ this.toggleBio } 
-          bio={ this.state.bios[this.state.selectedInd] }
+          bio={ this.state.selectedBio }
         />
       </ThemeProvider>
     );        
