@@ -58,6 +58,9 @@ body {
   align-items: center;
 }
 
+.main-card-container {
+  margin: 10px;
+}
 .name {
   padding: 5px;
   background-color: transparent;
@@ -79,6 +82,9 @@ body {
   // flex-wrap: wrap;
 }
 
+#span-card {
+  width: 600px;
+}
 #bio-container {
   display: grid;
   // grid-template: auto;

@@ -14,15 +14,15 @@ https://vegibit.com/bootstrap-modal-form-examples/
 [x] dynamic profile delete onclick
 [x] show pictures in avatars
 [ ] show pictures in bio
-[ ] upload pictures
 [ ] build database
 
 
 
-STRETCH FEATURE
 
+
+STRETCH FEATURES
 [ ] update profile
-
+[ ] upload pictures
 [ ] on hover show badges
 [ ] Curve text of names and titles around circles
 [ ] OAuth

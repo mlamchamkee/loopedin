@@ -13,6 +13,12 @@ const theme = createTheme({
       contrastText: '#fff'
     },
   },
+  typography: {
+    fontFamily: [
+      'Roboto',
+      'sans-serif',
+    ].join(','),
+  },
 });
 
 class App extends Component {
