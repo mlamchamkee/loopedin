@@ -2,6 +2,9 @@ import React from 'react';
 
 import { Avatar, Button } from '@mui/material';
 
+import '../assets/crgb0s.jpg';
+import '../assets/mlamchamkee.jpg';
+
 class AvatarContainer extends React.Component {
   render() {
     const { bio, toggleDialog } = this.props;
@@ -11,7 +14,8 @@ class AvatarContainer extends React.Component {
         <Button className="iris" onClick={ toggleDialog }>
           <Avatar 
             alt={ bio.gitHub }
-            src={ `client/assets/${bio.gitHub} }`}
+            src={ `client/assets/${bio.gitHub}.jpg }`}
+            // src="https://httpstatusdogs.com/img/300.jpg"
             sx={ { width: 120, height: 120 } } 
             // onClick={ toggleDialog }
           />

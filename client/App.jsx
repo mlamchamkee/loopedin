@@ -19,7 +19,7 @@ class App extends Component {
     super();
     console.log('App constructed');
     this.state = { 
-      showDialog: true,
+      showDialog: false,
       bios: [],
     };
     // Binding functions to App context

@@ -9,7 +9,10 @@ https://vegibit.com/bootstrap-modal-form-examples/
 [ ] build database
 [ ] pictures as assets in the repo
 
+
 STRETCH FEATURE
+[ ] delete profile
+[ ] update profile
 [ ] on hover show badges
 [ ] Curve text of names and titles around circles
 [ ] OAuth
