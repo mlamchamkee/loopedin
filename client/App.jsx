@@ -20,7 +20,7 @@ class App extends Component {
     super();
     console.log('App constructed');
     this.state = { 
-      showDialog: false,
+      showCreate: false,
       showBio: false,
       bios: [],
       selectedBio: undefined,
@@ -35,6 +35,7 @@ class App extends Component {
 
   // Allows users to press escape key to close Dialogs
   componentDidMount() {
+    console.log('App mounted');
     document.addEventListener('DOMContentLoaded', () => {
       const body = document.querySelector('body');
 
@@ -42,7 +43,7 @@ class App extends Component {
         if (e.key === 'Escape') {
           // console.log(e.key, 'pressed');
           this.setState({
-            showDialog: false,
+            showCreate: false,
             showBio: false,
           });
         }
@@ -52,8 +53,8 @@ class App extends Component {
   // opens and closes dialog box to submit user profiles
   toggleCreate() {
     // console.log('toggleDialog running');
-    if (this.state.showDialog) this.setState({ showDialog: false });
-    else this.setState({ showDialog: true });
+    if (this.state.showCreate) this.setState({ showCreate: false });
+    else this.setState({ showCreate: true });
   }
 
   // opens and closes dialog box viewing/deleting user profile
@@ -152,7 +153,7 @@ class App extends Component {
         />
         <Form 
           id="dialog" 
-          show={ this.state.showDialog } 
+          show={ this.state.showCreate } 
           getAll = { this.search }
           toggleCreate={ this.toggleCreate } 
           postProfile={ this.postProfile }
