@@ -4,6 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import MainContainer from './containers/MainContainer.jsx';
 import Form from './components/Form.jsx';
+// import BioDialog from './components/BioDialog.jsx';
 
 const theme = createTheme({
   palette: {
@@ -20,10 +21,13 @@ class App extends Component {
     console.log('App constructed');
     this.state = { 
       showDialog: false,
+      showBio: true,
       bios: [],
+      selectedInd: 2, // ML
     };
     // Binding functions to App context
     this.toggleDialog = this.toggleDialog.bind(this);
+    this.toggleBio = this.toggleBio.bind(this);
     this.postProfile = this.postProfile.bind(this);
     this.search = this.search.bind(this);
   }
@@ -33,6 +37,12 @@ class App extends Component {
     // console.log('toggleDialog running');
     if (this.state.showDialog) this.setState({ showDialog: false });
     else this.setState({ showDialog: true });
+  }
+
+  toggleBio() {
+    console.log('toggle Bio running');
+    if (this.state.showBio) this.setState({ showBio: false });
+    else this.setState({ showBio: true });
   }
 
   // submits a post request to save profile on the database
@@ -98,6 +108,12 @@ class App extends Component {
           toggleDialog={ this.toggleDialog } 
           postProfile={ this.postProfile }
         />
+        {/* <BioDialog 
+          id="dialog-bio" 
+          show={ this.state.showBio } 
+          toggleBio={ this.toggleBio } 
+          bio={ this.state.bios[this.state.selectedInd] }
+        /> */}
       </ThemeProvider>
     );        
   }
