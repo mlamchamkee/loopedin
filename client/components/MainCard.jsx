@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Avatar, Box, Card, CardContent, Link, Paper, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardContent, CardMedia, Link, Paper, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 class MainCard
@@ -11,15 +11,16 @@ class MainCard
 
     return (
       <div className="main-card-container">
-        <Card sx={{ height: 150, display: 'flex'}}>
-          <CardContent sx={{ maxWidth: 600 }}>
-            {/* <Box> */}
-            <Avatar 
-              alt={ bio.gitHub }
-              src={ `build/assets/${bio.gitHub}.jpg` }
-              sx={ { width: 120, height: 120 } } 
-            />
-            <span id="span-card">
+        <Card sx={{ display: 'flex' }}>
+          {/* <Box Box sx={{ display: 'flex', alignItems: 'center' }}>
+            </Box> */}
+          <Avatar 
+            alt={ bio.gitHub }
+            src={ `build/assets/${bio.gitHub}.jpg` }
+            sx={ { width: 120, height: 120 } } 
+          />
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <CardContent sx={{ flex: '1 0 auto' }}>
               <Typography gutterBottom variant="h4">
                 {bio.preferredName}
               </Typography>
@@ -32,9 +33,9 @@ class MainCard
                   <span style={{marginLeft: '5px'}}>{bio.gitHub}</span>
                 </div>
               </Link>
-            </span>
-            {/* </Box> */}
-          </CardContent>
+            </CardContent>
+          </Box>
+
         </Card>
       </div>
     );
