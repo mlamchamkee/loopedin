@@ -14,7 +14,7 @@ mongoose.connect(MONGO_URI, {
 
 const Schema = mongoose.Schema;
 
-// sets a schema for the 'species' collection
+// sets a schema for the 'bios' collection
 const baseSchema = new Schema({
   fullName: {type: String, required: true},
   preferredName: String,

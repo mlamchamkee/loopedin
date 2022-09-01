@@ -6,14 +6,14 @@ https://vegibit.com/bootstrap-modal-form-examples/
 [x] submit button to submit profile
 [x] search functionality to filter users with skills
 [x] build modal for profiles
-[ ] how to know which container thing is selected when clicked
+[ ] how to know which container is selected when clicked
 [ ] onclick to show modals for profiles
 [ ] build database
 [ ] show pictures in avatars
-
+[x] delete profile
 
 STRETCH FEATURE
-[ ] delete profile
+
 [ ] update profile
 [ ] on hover show badges
 [ ] Curve text of names and titles around circles

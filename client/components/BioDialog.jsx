@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Button, Dialog, DialogTitle, DialogActions, DialogContent } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import MainCard from './MainCard.jsx';
 import BaseCard from './BaseCard.jsx';
@@ -8,13 +9,13 @@ import BaseCard from './BaseCard.jsx';
 class BioDialog extends React.Component {
 
   render() {
-    const { show, showModal, toggleBio, bio } = this.props;
+    const { show, getAll, deleteBio, toggleBio, bio } = this.props;
 
     if (bio) {
       return (
         <Dialog
           open={ show }
-          onClose={ showModal }
+          onClose={ getAll }
           scroll="body"
           fullWidth="true"
           maxWidth="md"
@@ -30,6 +31,13 @@ class BioDialog extends React.Component {
             <BaseCard id="funFact"  question="What is a fun or random fact about yourself?" answer={ bio.funFact } />
           </DialogContent>
           <DialogActions>
+            <Button 
+              id="test" // ML
+              onClick={ deleteBio } 
+              endIcon={ <DeleteIcon/> }
+            >
+            Delete
+            </Button>
             <Button 
               onClick={ toggleBio } 
             >

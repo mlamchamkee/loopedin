@@ -9,12 +9,12 @@ import TextArea from './TextArea.jsx';
 class Form extends React.Component {
 
   render() {
-    const { show, showModal, toggleDialog, postProfile } = this.props;
+    const { show, toggleDialog, postProfile, getAll } = this.props;
 
     return (
       <Dialog
         open={ show }
-        onClose={ showModal }
+        onClose={ getAll }
         scroll="body"
       >
         <DialogTitle id="scroll-dialog-title">Create Codesmith Profile</DialogTitle>

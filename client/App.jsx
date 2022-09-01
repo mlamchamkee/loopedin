@@ -13,12 +13,6 @@ const theme = createTheme({
       contrastText: '#fff'
     },
   },
-  // typography: {
-  //   fontFamily: [
-  //     'Montserrat',
-  //     'sans-serif',
-  //   ].join(','),
-  // },
 });
 
 class App extends Component {
@@ -36,6 +30,7 @@ class App extends Component {
     this.toggleBio = this.toggleBio.bind(this);
     this.postProfile = this.postProfile.bind(this);
     this.search = this.search.bind(this);
+    this.deleteProfile = this.deleteProfile.bind(this);
   }
 
   // opens and closes dialog box to submit user profiles
@@ -45,13 +40,14 @@ class App extends Component {
     else this.setState({ showDialog: true });
   }
 
+  // opens and closes dialog box viewing/deleting user profile
   toggleBio() {
     console.log('toggle Bio running');
     if (this.state.showBio) this.setState({ showBio: false });
     else this.setState({ showBio: true });
   }
 
-  // submits a post request to save profile on the database
+  // submits a POST request to save a profile on the database
   postProfile() {
     const requestOptions = {
       method: 'POST',
@@ -78,6 +74,7 @@ class App extends Component {
     this.search();
   }
 
+  // submits a GET request to find a profiles on the database, defaults to finding all if no arg provided
   search(e) {
     let skill;
     if (e) skill = e.target.value;
@@ -96,6 +93,27 @@ class App extends Component {
       //   console.log('SEARCH', data);
       // })
       .catch(err => console.log('ERROR: Unable to search skill', err));
+
+
+  }
+
+  // submits a DELETE request to delete a profile on the database, argument is event from button click
+  deleteProfile(e) {
+    const requestOptions = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        gitHub: e.target.id
+      })
+    };
+
+    fetch('/bios/', requestOptions)
+      .then(response => response.json())
+      .then(() => this.toggleBio())
+      .catch(err => console.log('ERROR: Unable to delete profile', err));
+
+    // submit a GET request to update all bios
+    this.search();
   }
 
   render() {
@@ -111,12 +129,15 @@ class App extends Component {
         <Form 
           id="dialog" 
           show={ this.state.showDialog } 
+          getAll = { this.search }
           toggleDialog={ this.toggleDialog } 
           postProfile={ this.postProfile }
         />
         <BioDialog 
           id="dialog-bio" 
-          show={ this.state.showBio } 
+          show={ this.state.showBio }
+          getAll = { this.search }
+          deleteBio={ this.deleteProfile }
           toggleBio={ this.toggleBio } 
           bio={ this.state.bios[this.state.selectedInd] }
         />

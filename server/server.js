@@ -30,6 +30,11 @@ app.post('/bios',
   (req, res) => res.status(201).json(res.locals.newBio),
 );
 
+app.delete('/bios',
+  controller.deleteBio,
+  (req, res) => res.status(200).json({ Deleted: res.locals.newBio }),
+);
+
 // Global error handling middleware
 app.use((err, req, res, next) => {
   const defaultErr = {
@@ -42,9 +47,7 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-/**
- * start server
- */
+// Start server 
 app.listen(PORT, () => {
   console.log(`Server listening on port: http://localhost:${PORT}`);
 });
