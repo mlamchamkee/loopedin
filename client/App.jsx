@@ -122,14 +122,12 @@ class App extends Component {
       //   console.log('SEARCH', data);
       // })
       .catch(err => console.log('ERROR: Unable to search skill', err));
-
-
   }
 
   // submits a DELETE request to delete a profile on the database, argument is event from button click
   deleteProfile(e) {
     const gitHub = e.target.id || e.target.alt;
-    console.log(e.target);
+    // console.log(e.target);
     const requestOptions = {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },

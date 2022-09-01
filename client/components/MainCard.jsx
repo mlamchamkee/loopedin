@@ -16,8 +16,10 @@ class MainCard
             <Avatar 
               alt={ bio.gitHub }
               src={ `build/assets/${bio.gitHub}.jpg` }
-              sx={ { width: 120, height: 120 } } 
-            />
+              sx={ { width: 120, height: 120 } }
+            >
+              <img src="build/assets/305.jpg" />
+            </Avatar>
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <CardContent sx={{ flex: '1 0 auto' }}>

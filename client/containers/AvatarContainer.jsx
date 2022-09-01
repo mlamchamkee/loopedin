@@ -15,9 +15,15 @@ class AvatarContainer extends React.Component {
           <Avatar 
             alt={ bio.gitHub }
             src={ `build/assets/${bio.gitHub}.jpg` }
-            // src="https://httpstatusdogs.com/img/300.jpg"
             sx={ { width: 120, height: 120 } } 
-          />
+          >
+            {/* <img src="build/assets/305.jpg" /> */}
+            <Avatar 
+              alt={ bio.gitHub }
+              src="build/assets/305.jpg" 
+              sx={ { width: 120, height: 120 } } 
+            />
+          </Avatar>
         </Button>  
         <Button id= { bio.gitHub } className="name" onClick={ toggleBio }>
           { bio.preferredName }

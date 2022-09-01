@@ -6,7 +6,7 @@ const bioController = {};
 bioController.getAllBios = (req, res, next) => {
   models.Bio.find({})
     .then(data => {
-      data.sort((a, b) => (a.fullName > b.fullName) ? 1 : -1);
+      data.sort((a, b) => (a.preferredName > b.preferredName) ? 1 : -1);
       res.locals.bios = data;
       // console.log('got all bios');
       return next();
