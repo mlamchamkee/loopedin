@@ -7,7 +7,7 @@ bioController.getAllBios = (req, res, next) => {
     .then(data => {
       data.sort((a, b) => (a.fullName > b.fullName) ? 1 : -1);
       res.locals.bios = data;
-      console.log('got all bios');
+      // console.log('got all bios');
       return next();
     })
     .catch(err => next({ message: { err: 'Error in getAllBios controller'}}));
