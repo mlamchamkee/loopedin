@@ -14,7 +14,7 @@ https://vegibit.com/bootstrap-modal-form-examples/
 [x] dynamic profile delete onclick
 [x] show pictures in avatars
 [x] show pictures in bio
-[ ] build database
+[x] build database
 
 
 
