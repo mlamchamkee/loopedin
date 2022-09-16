@@ -21,6 +21,7 @@ https://vegibit.com/bootstrap-modal-form-examples/
 
 
 STRETCH FEATURES
+[ ] use RTK
 [ ] update profile
 [ ] upload pictures
 [ ] on hover show badges

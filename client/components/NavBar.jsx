@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { AppBar, InputBase, Toolbar, Typography } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+
+import { getProfiles } from '../reducers/slice';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -47,46 +50,45 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-class NavBar extends Component {
-  render() {
-    const { search } = this.props;
-    return (
-      <AppBar position="static">
-        <Toolbar>
-          <Toolbar
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-                ECRI Cohort 35
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              id="search"
-              placeholder="Search resources…"
-              // inputProps={{ 'aria-label': 'search', 'onKeyDown': this.props.search }}
-              inputProps={{ 'aria-label': 'search' }}
-              onChange={ search }
-              // onKeyDown={this.props.search}
-            />
-          </Search>
+const NavBar = (props) => {
+  const dispatch = useDispatch();
+  const getBios = () => dispatch(getProfiles());
+
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Toolbar
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          sx={{ mr: 2 }}
+        >
+          <MenuIcon />
         </Toolbar>
-      </AppBar>
-    );
-  }
-}
+        <Typography
+          variant="h6"
+          noWrap
+          component="div"
+          sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+        >
+                ECRI Cohort 35
+        </Typography>
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            id="search"
+            placeholder="Search resources…"
+            inputProps={{ 'aria-label': 'search' }}
+            onChange={ getBios }
+          />
+        </Search>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
 
 export default NavBar;

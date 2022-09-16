@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
 
 import BioContainer from './BioContainer.jsx';
 import NavBar from '../components/NavBar.jsx';
+import { toggleCreate } from '../reducers/slice';
 
-class MainContainer extends Component {
-  render() {
-    const { search, bios, toggleCreate, toggleBio } = this.props;
+const MainContainer = (props) => {
+  const dispatch = useDispatch();
+  const togCreate = () => dispatch(toggleCreate());
 
-    return(
-      <div id="main-container" className="container">
-        <NavBar search={ search } />
-        <BioContainer search={ search } bios={ bios } toggleBio={ toggleBio } />
-        <div id="button-container">
-          <Button 
-            id="dialog-button" 
-            variant="contained" 
-            onClick={ toggleCreate } 
-          >
+  return(
+    <div id="main-container" className="container">
+      <NavBar />
+      <BioContainer />
+      <div id="button-container">
+        <Button 
+          id="dialog-button" 
+          variant="contained" 
+          onClick={ togCreate } 
+        >
           Create Profile
-          </Button>
-        </div>
+        </Button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
 
 export default MainContainer;
