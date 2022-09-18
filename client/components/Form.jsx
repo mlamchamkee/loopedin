@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { TextField, Button, Dialog, DialogTitle, DialogActions, DialogContent } from '@mui/material';
-import { Send as SendIcon } from '@mui/icons-material';
-import { Close as CloseIcon } from '@mui/icons-material';
+
+import SendIcon from '@mui/icons-material/Send';
+import CloseIcon from '@mui/icons-material/Close';
 
 import TextArea from './TextArea.jsx';
 
@@ -15,7 +16,11 @@ const Form = (props) => {
   const showCreate = useSelector((state) => state.slice.showCreate);
   const togCreate = () => dispatch(toggleCreate());
   const getBios = () => dispatch(getProfiles());
-  const postBio = () => dispatch(postProfile());
+  const postBio = () => {
+    dispatch(postProfile());
+    dispatch(toggleCreate());
+    dispatch(getProfiles());
+  };
 
   return (
     <Dialog

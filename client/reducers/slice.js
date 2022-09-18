@@ -45,20 +45,16 @@ export const slice = createSlice({
 
       fetch('/bios/', requestOptions)
         .then(response => response.json())
-        .then(() => this.toggleCreate())
         .catch(err => console.log('ERROR: Unable to create profile', err));
-      
-      /// submit a GET request to get all bios
-      this.search();
     },
     // submits a GET request to find a profiles on the database, defaults to finding all if no arg provided
     getProfiles(state, action) {
       let skill;
-      if (action.payload.e) skill = action.payload.e.target.value;
-      // console.log('Search', skill);
+      // if (action) skill = action.payload.e.target.value;
+      console.log('Search', action);
 
       let endpoint;
-      if (skill) endpoint = `/search/${skill}`;
+      if (skill) endpoint = `/search/${skill}`;reu
       else endpoint = '/bios/';
 
       fetch(endpoint)
@@ -84,11 +80,8 @@ export const slice = createSlice({
 
       fetch('/bios/', requestOptions)
         .then(response => response.json())
-        .then(() => this.toggleBio())
+        // .then(() => this.toggleBio())
         .catch(err => console.log('ERROR: Unable to delete profile', err));
-
-      // submit a GET request to get all bios
-      this.search();
     },
   }
 });

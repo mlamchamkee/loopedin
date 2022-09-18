@@ -7,14 +7,18 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import MainCard from './MainCard.jsx';
 import BaseCard from './BaseCard.jsx';
 
-import { toggleBio, deleteProfile } from '../reducers/slice';
+import { toggleBio, deleteProfile, getProfiles } from '../reducers/slice';
 
 const BioDialog = (props) => {
   const dispatch = useDispatch();
   const showBio = useSelector((state) => state.slice.showBio);
   const bio = useSelector((state) => state.slice.selectedBio);
   const togBio = () => dispatch(toggleBio());
-  const delBio = () => dispatch(deleteProfile());
+  const delBio = (e) => {
+    dispatch(deleteProfile(e));
+    dispatch(toggleBio());
+    dispatch(getProfiles());
+  };
 
   if (bio) {
     return (

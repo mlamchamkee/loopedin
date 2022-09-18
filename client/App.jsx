@@ -25,29 +25,30 @@ const theme = createTheme({
   },
 });
 
-class App extends Component {
-  constructor() {
-    super();
-    // const dispatch = useDispatch();
-    // const getBios = () => dispatch(getProfiles());
-    // getBios();
-    // const bios = useSelector((state) => state.slice.bios); 
-    console.log('App constructed');
-    // console.log('BIOS', bios);
-    // this.state = { 
-    //   userVerified: false,
-    //   showCreate: false,
-    //   showBio: false,
-    //   bios: [],
-    //   selectedBio: undefined,
-    // };
-    // Binding functions to App context
-    // this.toggleCreate = this.toggleCreate.bind(this);
-    // this.toggleBio = this.toggleBio.bind(this);
-    // this.postProfile = this.postProfile.bind(this);
-    // this.search = this.search.bind(this);
-    // this.deleteProfile = this.deleteProfile.bind(this);
-  }
+const App = (props) => {
+// class App extends Component {
+  // constructor() {
+  // super();
+  const dispatch = useDispatch();
+  // const getBios = () => dispatch(getProfiles());
+  getProfiles();
+  const bios = useSelector((state) => state.slice.bios); 
+  console.log('App constructed');
+  console.log('BIOS', bios);
+  // this.state = { 
+  //   userVerified: false,
+  //   showCreate: false,
+  //   showBio: false,
+  //   bios: [],
+  //   selectedBio: undefined,
+  // };
+  // Binding functions to App context
+  // this.toggleCreate = this.toggleCreate.bind(this);
+  // this.toggleBio = this.toggleBio.bind(this);
+  // this.postProfile = this.postProfile.bind(this);
+  // this.search = this.search.bind(this);
+  // this.deleteProfile = this.deleteProfile.bind(this);
+  // }
 
   // Allows users to press escape key to close Dialogs
   // componentDidMount() {
@@ -155,16 +156,16 @@ class App extends Component {
   //   this.search();
   // }
 
-  render() {
-    return (
-      <ThemeProvider theme={theme}>
-        {/* <LoginPage/> */}
-        <MainContainer id="main-container" />
-        <Form id="dialog" />
-        <BioDialog id="dialog-bio" />
-      </ThemeProvider>
-    );        
-  }
-}
+  // render() {
+  return (
+    <ThemeProvider theme={theme}>
+      {/* <LoginPage/> */}
+      <MainContainer id="main-container" />
+      <Form id="dialog" />
+      <BioDialog id="dialog-bio" />
+    </ThemeProvider>
+  );        
+};
+// }
 
 export default App;

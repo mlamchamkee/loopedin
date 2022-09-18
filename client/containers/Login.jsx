@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button } from '@mui/material';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import NavBar from '../components/NavBar';
 
 const LoginPage = (props) => {
