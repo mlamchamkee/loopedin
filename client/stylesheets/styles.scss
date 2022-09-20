@@ -92,6 +92,12 @@ body {
   padding: 25px 15px;
 }
 
+#spinner-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #button-container {
   display: flex;
   justify-content: center;
@@ -104,6 +110,11 @@ body {
 
 #github{
   width: 800px;
+}
+
+.login-button img {
+  height: 50px;
+  width: 50px;
 }
 
 // p {

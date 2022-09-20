@@ -9,7 +9,7 @@ mongoose.connect(MONGO_URI, {
   // sets the name of the DB that our collections are part of
   dbName: 'csf',
 })
-  .then(() => console.log('Connected to Mongo DB: CSF.'))
+  .then(() => console.log('Connected to Mongo DB: LoopedIn.'))
   .catch((err) => console.log(err));
 
 const Schema = mongoose.Schema;

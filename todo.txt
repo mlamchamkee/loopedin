@@ -14,19 +14,20 @@ https://vegibit.com/bootstrap-modal-form-examples/
 [x] dynamic profile delete onclick
 [x] show pictures in avatars
 [x] show pictures in bio
-[ ] build database
+[x] build database
 
 
 
 
 
 STRETCH FEATURES
-[ ] update profile
+[x] use RTK
+[ ] OAuth
+[ ] update profile functionality
 [ ] upload pictures
+[ ] search functionality to filter users with hobbies
 [ ] on hover show badges
 [ ] Curve text of names and titles around circles
-[ ] OAuth
-[ ] search functionality to filter users with hobbies
 
 https://1stwebdesigner.com/set-text-on-a-circle-with-css/
 https://css-tricks.com/snippets/svg/curved-text-along-path/
