@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Avatar, Box, Card, CardContent, CardMedia, Link, Paper, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardContent, Link, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 const MainCard = (props) => {

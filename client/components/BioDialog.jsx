@@ -15,7 +15,7 @@ const BioDialog = (props) => {
   const bio = useSelector((state) => state.slice.selectedBio);
   const togBio = () => dispatch(toggleBio());
   const delBio = (e) => {
-    dispatch(deleteProfile(e));
+    dispatch(deleteProfile(e.target.id));
     dispatch(toggleBio());
     dispatch(getProfiles());
   };

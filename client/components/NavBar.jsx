@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { AppBar, InputBase, Toolbar, Typography } from '@mui/material';
@@ -52,7 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const NavBar = (props) => {
   const dispatch = useDispatch();
-  const getBios = () => dispatch(getProfiles());
+  const getBios = (e) => dispatch(getProfiles(e.target.value));
 
   return (
     <AppBar position="static">
