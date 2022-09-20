@@ -17,8 +17,8 @@ const Form = (props) => {
   const togCreate = () => dispatch(toggleCreate());
   const getBios = async () => await dispatch(fetchProfiles());
   const postBio = async () => {
-    dispatch(postProfile());
-    dispatch(toggleCreate());
+    await dispatch(postProfile());
+    await dispatch(toggleCreate());
     await dispatch(fetchProfiles());
   };
 

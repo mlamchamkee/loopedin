@@ -25,8 +25,21 @@ export const slice = createSlice({
       }
       state.showBio = !state.showBio;
     },
-    // submits a POST request to save a profile on the database
-    postProfile(state) {
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProfiles.fulfilled, (state, action) => {
+        state.status = 'fulfilled';
+        state.bios = action.payload;
+      });
+  }
+});
+
+const thunks = {
+  // submits a POST request to save a profile on the database
+  postProfile: createAsyncThunk(
+    'slice/postProfile', 
+    async () => {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -42,45 +55,21 @@ export const slice = createSlice({
           skills: document.querySelector('#skills').value,
         })
       };
-
-      fetch('/bios/', requestOptions)
-        .then(response => response.json())
-        .catch(err => console.log('ERROR: Unable to create profile', err));
-    },
-    
-    // submits a DELETE request to delete a profile on the database, argument is event from button click
-    deleteProfile(state, action) {
-      const gitHub = action.payload;
-      const requestOptions = {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          gitHub: action.payload
-        })
-      };
-
-      fetch('/bios/', requestOptions)
-        .then(response => response.json())
-        // .then(() => this.toggleBio())
-        .catch(err => console.log('ERROR: Unable to delete profile', err));
-    },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchProfiles.fulfilled, (state, action) => {
-        state.status = 'fulfilled';
-        state.bios = action.payload;
-      });
-  }
-});
-
-const thunks = {
+      try {
+        const response = await fetch('/bios/', requestOptions);
+        return response.json();
+      }
+      catch (error) {
+        console.log('ERROR: Unable to create profile', error);
+      }
+    }),
+  
   // submits a GET request to find a profiles on the database, defaults to finding all if no arg provided
   fetchProfiles: createAsyncThunk(
     'slice/fetchProfiles', 
-    async (action) => {
+    async (payload) => {
       let endpoint = '/bios/';
-      if (action?.length) endpoint = `/search/${action}`;
+      if (payload?.length) endpoint = `/search/${payload}`;
       try {
         const response = await fetch(endpoint);
         return response.json();
@@ -88,13 +77,33 @@ const thunks = {
       catch (error) {
         console.log('ERROR: Unable to search skill', error);
       }
-      
+    }
+  ),
+
+  // submits a DELETE request to delete a profile on the database, argument is event from button click
+  deleteProfile: createAsyncThunk(
+    'slice/deleteProfile', 
+    async (payload) => {
+      const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          gitHub: payload
+        })
+      };
+      try {
+        const response = await fetch('/bios/', requestOptions);
+        return response.json();
+      }
+      catch (error) {
+        console.log('ERROR: Unable to delete profile', error);
+      }
     }
   ),
 };
 
-export const { toggleCreate, toggleBio, postProfile, deleteProfile } = slice.actions;
+export const { toggleCreate, toggleBio } = slice.actions;
 
-export const { fetchProfiles } = thunks;
+export const { postProfile, fetchProfiles, deleteProfile } = thunks;
 
 export default slice.reducer;
