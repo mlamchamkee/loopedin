@@ -8,18 +8,18 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import TextArea from './TextArea.jsx';
 
-import { toggleCreate, postProfile, getProfiles } from '../reducers/slice';
+import { toggleCreate, postProfile, fetchProfiles } from '../reducers/slice';
 
 
 const Form = (props) => {
   const dispatch = useDispatch();
   const showCreate = useSelector((state) => state.slice.showCreate);
   const togCreate = () => dispatch(toggleCreate());
-  const getBios = () => dispatch(getProfiles());
-  const postBio = () => {
+  const getBios = async () => await dispatch(fetchProfiles());
+  const postBio = async () => {
     dispatch(postProfile());
     dispatch(toggleCreate());
-    dispatch(getProfiles());
+    await dispatch(fetchProfiles());
   };
 
   return (

@@ -10,7 +10,7 @@ import LoginPage from './containers/Login.jsx';
 import { store } from './store';
 import { Provider } from 'react-redux';
 
-import { getProfiles, fetchProfiles } from './reducers/slice';
+import { fetchProfiles } from './reducers/slice';
 
 const theme = createTheme({
   palette: {
@@ -29,10 +29,6 @@ const theme = createTheme({
 
 const App = (props) => {
   const dispatch = useDispatch();
-  // const getBios = () => dispatch(getProfiles());
-  // 
-  // const bios = useSelector((state) => state.slice.bios); 
-  // console.log('BIOS', bios);
   const getBios = async () => await dispatch(fetchProfiles());
   getBios();
 

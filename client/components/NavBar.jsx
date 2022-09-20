@@ -6,7 +6,7 @@ import { styled, alpha } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { getProfiles } from '../reducers/slice';
+import { fetchProfiles } from '../reducers/slice';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,7 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const NavBar = (props) => {
   const dispatch = useDispatch();
-  const getBios = (e) => dispatch(getProfiles(e.target.value));
+  const getBios = async (e) => dispatch(fetchProfiles(e.target.value));
 
   return (
     <AppBar position="static">

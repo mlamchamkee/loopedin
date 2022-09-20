@@ -20,9 +20,7 @@ export const slice = createSlice({
     // sets the selectedBio state to the profile clicked on by user
     toggleBio: (state, action) => {
       if (action.payload) {
-        // const gitHub = action.payload.e.target.id || action.payload.e.target.alt;
         const gitHub = action.payload;
-        // console.log('E Target', gitHub);
         state.selectedBio = state.bios.filter(obj => obj.gitHub === gitHub)[0];
       }
       state.showBio = !state.showBio;
@@ -49,34 +47,15 @@ export const slice = createSlice({
         .then(response => response.json())
         .catch(err => console.log('ERROR: Unable to create profile', err));
     },
-    // submits a GET request to find a profiles on the database, defaults to finding all if no arg provided
-    getProfiles(state, action) {
-      console.log('Search', action);
-      let endpoint = '/bios/';
-      if (action.payload?.length) endpoint = `/search/${action.payload}`;
-
-      fetch(endpoint)
-        .then(response => response.json())
-        .then((data) => {
-          console.log('Fetched data', data);
-          // console.log('State Bios', state.bios);
-          // state.bios = data;
-          // console.log('State Bios', state.bios);
-        })
-        
-        .catch(err => console.log('ERROR: Unable to search skill', err));
-
-      console.log('State Bios', state.bios);
-    },
+    
     // submits a DELETE request to delete a profile on the database, argument is event from button click
     deleteProfile(state, action) {
       const gitHub = action.payload;
-      console.log(action.payload);
       const requestOptions = {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          gitHub: action.payload.e.target.id
+          gitHub: action.payload
         })
       };
 
@@ -90,34 +69,32 @@ export const slice = createSlice({
     builder
       .addCase(fetchProfiles.fulfilled, (state, action) => {
         state.status = 'fulfilled';
-        console.log('ACTION', action);
-        console.log('ACTION payload', action.payload);
         state.bios = action.payload;
       });
   }
-
-  // extraReducers(builder) {
-  //   builder
-  //     .addCase(fetchProfiles.fulfilled, (state, action) => {
-  //       state.status = 'fulfilled';
-  //       console.log('ACTION', action);
-  //       state.bios = action.payload;
-  //     });
-  // }
 });
 
-export const { toggleCreate, toggleBio, postProfile, getProfiles, deleteProfile } = slice.actions;
+const thunks = {
+  // submits a GET request to find a profiles on the database, defaults to finding all if no arg provided
+  fetchProfiles: createAsyncThunk(
+    'slice/fetchProfiles', 
+    async (action) => {
+      let endpoint = '/bios/';
+      if (action?.length) endpoint = `/search/${action}`;
+      try {
+        const response = await fetch(endpoint);
+        return response.json();
+      }
+      catch (error) {
+        console.log('ERROR: Unable to search skill', error);
+      }
+      
+    }
+  ),
+};
+
+export const { toggleCreate, toggleBio, postProfile, deleteProfile } = slice.actions;
+
+export const { fetchProfiles } = thunks;
 
 export default slice.reducer;
-
-export const fetchProfiles = createAsyncThunk(
-  'slice/fetchProfiles', 
-  async () => {
-    const endpoint = '/bios/';
-    // if (action.payload?.length) endpoint = `/search/${action.payload}`;
-
-    const response = await fetch(endpoint);
-
-    return response.json();
-  }
-);

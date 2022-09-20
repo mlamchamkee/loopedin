@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 
 import BioContainer from './BioContainer.jsx';
 import NavBar from '../components/NavBar.jsx';
-import { toggleCreate, getProfiles, fetchProfiles } from '../reducers/slice';
+import { toggleCreate } from '../reducers/slice';
 
 const MainContainer = (props) => {
   const dispatch = useDispatch();
