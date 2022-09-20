@@ -1,6 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
+  status: 'loading',
   userVerified: false,
   showCreate: false,
   showBio: false,
@@ -18,8 +19,9 @@ export const slice = createSlice({
     },
     // sets the selectedBio state to the profile clicked on by user
     toggleBio: (state, action) => {
-      if (action.payload.e) {
-        const gitHub = action.payload.e.target.id || action.payload.e.target.alt;
+      if (action.payload) {
+        // const gitHub = action.payload.e.target.id || action.payload.e.target.alt;
+        const gitHub = action.payload;
         // console.log('E Target', gitHub);
         state.selectedBio = state.bios.filter(obj => obj.gitHub === gitHub)[0];
       }
@@ -49,26 +51,26 @@ export const slice = createSlice({
     },
     // submits a GET request to find a profiles on the database, defaults to finding all if no arg provided
     getProfiles(state, action) {
-      let skill;
-      // if (action) skill = action.payload.e.target.value;
       console.log('Search', action);
-
-      let endpoint;
-      if (skill) endpoint = `/search/${skill}`;reu
-      else endpoint = '/bios/';
+      let endpoint = '/bios/';
+      if (action.payload?.length) endpoint = `/search/${action.payload}`;
 
       fetch(endpoint)
         .then(response => response.json())
         .then((data) => {
           console.log('Fetched data', data);
-          state.bios = data;
+          // console.log('State Bios', state.bios);
+          // state.bios = data;
+          // console.log('State Bios', state.bios);
         })
         
         .catch(err => console.log('ERROR: Unable to search skill', err));
+
+      console.log('State Bios', state.bios);
     },
     // submits a DELETE request to delete a profile on the database, argument is event from button click
     deleteProfile(state, action) {
-      const gitHub = action.payload.e.target.id || action.payload.e.target.alt;
+      const gitHub = action.payload;
       console.log(action.payload);
       const requestOptions = {
         method: 'DELETE',
@@ -83,9 +85,39 @@ export const slice = createSlice({
         // .then(() => this.toggleBio())
         .catch(err => console.log('ERROR: Unable to delete profile', err));
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProfiles.fulfilled, (state, action) => {
+        state.status = 'fulfilled';
+        console.log('ACTION', action);
+        console.log('ACTION payload', action.payload);
+        state.bios = action.payload;
+      });
   }
+
+  // extraReducers(builder) {
+  //   builder
+  //     .addCase(fetchProfiles.fulfilled, (state, action) => {
+  //       state.status = 'fulfilled';
+  //       console.log('ACTION', action);
+  //       state.bios = action.payload;
+  //     });
+  // }
 });
 
 export const { toggleCreate, toggleBio, postProfile, getProfiles, deleteProfile } = slice.actions;
 
 export default slice.reducer;
+
+export const fetchProfiles = createAsyncThunk(
+  'slice/fetchProfiles', 
+  async () => {
+    const endpoint = '/bios/';
+    // if (action.payload?.length) endpoint = `/search/${action.payload}`;
+
+    const response = await fetch(endpoint);
+
+    return response.json();
+  }
+);
