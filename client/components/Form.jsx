@@ -15,7 +15,6 @@ const Form = (props) => {
   const dispatch = useDispatch();
   const showCreate = useSelector((state) => state.slice.showCreate);
   const togCreate = () => dispatch(toggleCreate());
-  const getBios = async () => await dispatch(fetchProfiles());
   const postBio = async () => {
     await dispatch(postProfile());
     await dispatch(toggleCreate());
@@ -25,7 +24,6 @@ const Form = (props) => {
   return (
     <Dialog
       open={ showCreate }
-      onClose={ getBios }
       scroll="body"
     >
       <DialogTitle id="scroll-dialog-title">Create Codesmith Profile</DialogTitle>
