@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
 
@@ -9,6 +9,7 @@ import { toggleCreate } from '../reducers/slice';
 const MainContainer = (props) => {
   const dispatch = useDispatch();
   const togCreate = () => dispatch(toggleCreate());
+
 
   return(
     <div id="main-container" className="container">

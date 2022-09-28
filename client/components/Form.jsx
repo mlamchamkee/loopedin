@@ -2,25 +2,28 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { TextField, Button, Dialog, DialogTitle, DialogActions, DialogContent } from '@mui/material';
-import { Send as SendIcon } from '@mui/icons-material';
-import { Close as CloseIcon } from '@mui/icons-material';
+
+import SendIcon from '@mui/icons-material/Send';
+import CloseIcon from '@mui/icons-material/Close';
 
 import TextArea from './TextArea.jsx';
 
-import { toggleCreate, postProfile, getProfiles } from '../reducers/slice';
+import { toggleCreate, postProfile, fetchProfiles } from '../reducers/slice';
 
 
 const Form = (props) => {
   const dispatch = useDispatch();
   const showCreate = useSelector((state) => state.slice.showCreate);
   const togCreate = () => dispatch(toggleCreate());
-  const getBios = () => dispatch(getProfiles());
-  const postBio = () => dispatch(postProfile());
+  const postBio = async () => {
+    await dispatch(postProfile());
+    await dispatch(toggleCreate());
+    await dispatch(fetchProfiles());
+  };
 
   return (
     <Dialog
       open={ showCreate }
-      onClose={ getBios }
       scroll="body"
     >
       <DialogTitle id="scroll-dialog-title">Create Codesmith Profile</DialogTitle>

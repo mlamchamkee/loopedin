@@ -10,7 +10,7 @@ const AvatarContainer = (props) => {
   const dispatch = useDispatch();
 
   const bio = props.bio;
-  const togBio = (action) => dispatch(toggleBio(action)); // MLCK
+  const togBio = (e) => dispatch(toggleBio(e.target.id || e.target.alt)); // MLCK
     
   // console.log('avatar container props', this.props);
   return (
@@ -29,7 +29,7 @@ const AvatarContainer = (props) => {
           />
         </Avatar>
       </Button>  
-      <Button id= { bio.gitHub } className="name" onClick={ toggleBio }>
+      <Button id= { bio.gitHub } className="name" onClick={ togBio }>
         { bio.preferredName }
       </Button>
     </div>

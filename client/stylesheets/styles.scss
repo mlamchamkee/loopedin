@@ -92,6 +92,12 @@ body {
   padding: 25px 15px;
 }
 
+#spinner-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #button-container {
   display: flex;
   justify-content: center;

@@ -1,6 +1,6 @@
 {
-  "name": "solo-loopedin",
-  "version": "1.0.0",
+  "name": "loopedin",
+  "version": "0.1.0",
   "description": "Keeping Codesmith connected",
   "main": "index.js",
   "scripts": {
