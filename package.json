@@ -11,7 +11,6 @@
     "build": "webpack",
     "dev": "concurrently \"NODE_ENV=development webpack serve --hot --color\" \"nodemon ./server/server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
